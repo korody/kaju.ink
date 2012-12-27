@@ -1,8 +1,16 @@
 section
-  .row-fluid
-    .span10.offset1#logo
-      =' link_to image_tag('logo_center.png'), nil
-    .span3.offset8
-      h2 for now check out the arts on:  
-      h1 = link_to "facebook fan page", 'https://www.facebook.com/kaju.ink', target: 'blank'
-      h1 = link_to "online portfolio", 'http://www.kcjuzwiak.wix.com/art', target: 'blank' 
+  .container#container
+      #logo
+        =' link_to image_tag('background.png'), nil
+      #graphic
+        =' link_to image_tag('graphic.png'), nil
+      #illustration
+        =' link_to image_tag('illustration.png'), nil  
+      #soon
+        =' link_to image_tag('soon.png'), nil
+      #hello
+        =' link_to image_tag('hello.png'), nil
+      #peek
+        h1 take a peek now  
+        h2 = link_to "fb fan page", 'https://www.facebook.com/kaju.ink', target: 'blank'
+        h2 = link_to "online portfolio", 'http://www.kcjuzwiak.wix.com/art', target: 'blank' 
