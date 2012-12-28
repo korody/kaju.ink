@@ -1,15 +1,7 @@
 section
-  .container#container
-      #logo
-        =' link_to image_tag('background.png'), nil
-      #graphic
-        =' link_to image_tag('graphic.png'), nil
-      #illustration
-        =' link_to image_tag('illustration.png'), nil  
-      #soon
-        =' link_to image_tag('soon.png'), nil
-      #hello
-        =' link_to image_tag('hello.png'), nil
+  .row-fluid
+    .offset1#container
+      =' image_tag 'background.png'
       #peek
         h1 take a peek now  
         h2 = link_to "fb fan page", 'https://www.facebook.com/kaju.ink', target: 'blank'
