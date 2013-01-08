@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  client_info: MyString
+  spot: MyString
+  title: MyString
+  what: MyString
+  area: MyString
+  effort: MyString
+  material: MyString
+  description: MyText
+  type: 
+
+two:
+  client_info: MyString
+  spot: MyString
+  title: MyString
+  what: MyString
+  area: MyString
+  effort: MyString
+  material: MyString
+  description: MyText
+  type: 
