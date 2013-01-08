@@ -1,0 +1,25 @@
+- provide :title, 'hello'
+.span5
+  = render 'error_messages', object: @message
+  = simple_form_for @message, url: hello_path, html: { class: 'form-vertical' } do |f|
+    .contact-info
+      i.icon-th-list
+      |  preencha o formulário abaixo para entrar em contato conosco
+    .contact-info-form
+      / = f.input :name, wrapper: :prepend, error: false, label: false do
+      /     = content_tag :span
+      /     span(class="add-on")
+      /       i(class="icon-user")
+      = f.input_field :name, class: 'span3', placeholder: 'nome'
+      / = f.input :email, wrapper: :prepend, error: false, label: false do
+      /     = content_tag :span
+      /     span(class="add-on")
+      /       i(class="icon-envelope")
+      = f.input_field :email, class: 'span3', placeholder: 'e-mail'
+      / = f.input :subject, wrapper: :prepend, error: false, label: false do
+      /     = content_tag :span
+      /     span(class="add-on")
+      /       i(class="icon-tag")
+      = f.input_field :subject, class: 'span3', placeholder: 'assunto'
+      = f.input :body, as: :text, error: false, label: false, input_html: { class: 'span4', rows: 6}, placeholder: 'mensagem'
+      = f.submit 'enviar email', class: 'btn btn-danger'

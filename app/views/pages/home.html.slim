@@ -1,8 +1,10 @@
-section
-  .row-fluid
-    .offset1#container
-      =' image_tag 'background.png'
-      #peek
-        h1 take a peek now  
-        h2 = link_to "fb fan page", 'https://www.facebook.com/kaju.ink', target: 'blank'
-        h2 = link_to "online portfolio", 'http://www.kcjuzwiak.wix.com/art', target: 'blank' 
+.row-fluid
+  .span12#quitanda
+    #hello
+      = link_to "hello", hello_path
+    #art
+      = link_to "art"
+    #kaju
+      = link_to "kaju", about_path
+    #graphic
+      = link_to "graphic"
