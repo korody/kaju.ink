@@ -1,0 +1,7 @@
+.container
+  ul.thumbnails#job-gallery
+    - @jobs.limit(24).each do |job|
+      li
+        .thumbnail 
+          = link_to (image_tag "dude.jpg", alt: ''), job, class: 'thumbnail', remote: true
+          h5 = job.title

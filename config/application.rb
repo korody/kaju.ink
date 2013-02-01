@@ -61,17 +61,18 @@ module KajuInk
 
     # ActionMailer
     config.action_mailer.smtp_settings = {
-      address:              "smtp.gmail.com",
-      port:                 587,
-      domain:               "gmail.com",
-      user_name:            "hello@kajuink.com",
-      password:             "kalina01",
-      authentication:       "plain",
-      enable_starttls_auto: true
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => "kajuink.com",
+      :user_name            => "kalina@kajuink.com",
+      :password             => "kalina01",
+      :authentication       => :plain,
+      :enable_starttls_auto => true
     }
 
+    #ActionMailer::Base.default_url_options[:host] = "raspas.com.br"
     config.action_mailer.default_url_options = {
-      host: "kajuink.com"
+      :host => "kajuink.com"
     }
 
   end

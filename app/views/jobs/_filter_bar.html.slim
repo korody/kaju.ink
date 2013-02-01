@@ -1,0 +1,19 @@
+.navbar.navbar-fixed-top#job-art
+  .container
+    ul.nav
+      / = active_link_to 'human', jobs_path(type: :humans), type: :humans
+      / = active_link_to 'abstract', jobs_path(type: :abstracts), type: :abstracts
+      / = active_link_to 'serial', jobs_path(type: :serials), type: :serials
+      / = active_link_to 'pattern', jobs_path(type: :patterns), type: :patterns
+      / = active_link_to 'character', jobs_path(type: :characters), type: :characters
+      / = active_link_to 'wall', jobs_path(type: :walls), type: :walls
+      / = active_link_to 'all', jobs_path
+      - if controller.action_name == 'art'
+        - Job.artbar.each do |a|
+          = active_link_to a.downcase, jobs_path(type: a), type: a
+        li = link_to 'all', art_path
+      - elsif controller.action_name == 'graphic'
+        - Job.graphicbar.each do |b|
+          = active_link_to b.downcase, jobs_path(type: b), type: b
+        li = link_to 'all', graphic_path
+      end

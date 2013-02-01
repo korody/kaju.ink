@@ -1,26 +1,88 @@
-$border: #DDD
-$text: black
-
-.border
-  border: 1px solid $border
+@import 'presets'
 
 body
+  // margin-top: 105px
 
-  a
-    color: #DB947A
-    font-size: 30px
-    margin-right: 20px
 
-    &:hover
-      color: $text
-      text-decoration: none
+  /* ---------- HOME ------------ */ 
+
 
   #quitanda
-    background: url("quitanda.jpg") no-repeat
-    height: 1080px
+    // margin-top: 5%
     position: relative
-    width: 1920px
+    text-align: center
+    // background: url("quitanda.jpg") no-repeat
+    // background-size: 1920px 600px
 
-  #hello, #art, #kaju, #graphic
-    // position: absolute
-    margin: 20px
+    img
+      min-height: 600px
+      min-width: 1920px
+
+  #hello, #art, #kaju, #shop, #graphic
+    font-size: 30px
+    position: absolute
+
+    a
+      color: $link
+      text-decoration: none
+
+      &:hover
+        color: gray
+
+  #hello
+    top: 130px
+    left: 572px
+
+  #art
+    bottom: 94px
+    left: 774px
+
+  #kaju
+    top: 179px
+    left: 996px
+
+  #shop
+    bottom: 236px
+    right: 582px
+
+  #graphic
+    top: 138px
+    right: 434px  
+
+
+  /* ---------- MENU BAR ------------ */ 
+
+  #menubar
+    background-color: $base
+    border-bottom: 1px dashed $border
+    padding-bottom: 20px
+    padding-top: 20px
+
+    img
+      margin-right: 8px
+      height: 45px
+      width: 45px
+
+    img#ribbon
+      height: 45px
+      margin-left: -4px
+      width: 90px
+
+    a
+      color: black
+      font-size: 24px
+
+      &:hover
+        color: $link
+
+    a.active
+      color: $link
+
+
+  /* ---------- ABOUT ------------ */ 
+
+
+  #infograph
+    margin-top: 200px
+    position: absolute
+    bottom: 0%

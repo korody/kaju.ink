@@ -1,0 +1,18 @@
+$('#show-job').hide();
+$('#show-job').html("<%= j render 'job', job: @job %>");
+$('#show-job').fadeToggle(1500);
+
+var container = $("#show-job");
+var page = $("html,body");
+
+$('html,body').animate({
+  scrollTop: container.offset().top - 145 },
+2000);
+
+$(function() {
+  $('#up').click(function() {
+    $('html,body').animate({
+      scrollTop: page.offset().top - 0 },
+    2000);
+  });
+});

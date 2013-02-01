@@ -11,6 +11,7 @@ gem 'jquery-rails'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'jquery-fileupload-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -26,4 +27,11 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'faker'
 end
+
+gem 'carrierwave', '>= 0.5.3'
+gem 'nested_form'
+gem "fog", "~> 1.3.1"
+gem 'aws-s3'
+gem "rmagick"

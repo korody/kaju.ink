@@ -7,7 +7,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :title
       t.string :what
       t.string :area
-      t.string :effort
+      t.string :duration
       t.string :material
       t.text :description
       t.string :type
