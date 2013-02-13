@@ -1,6 +1,8 @@
-.row-fluid
-  .span12
-    = render 'jobs/filter_bar'
-    #show-jobs
-      = render 'jobs/jobs'
-    #show-job
+= render 'jobs/filter_bar'
+.container.space
+  #show-jobs
+    ul.thumbnails#job-gallery
+      - @jobs.each do |job|
+        = render 'jobs/job', job: job
+    = link_to "new job", new_job_path, class: 'btn span2'
+#view-job

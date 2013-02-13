@@ -1,0 +1,7 @@
+.container
+  ul.thumbnails#job-gallery.clients-list
+    = render 'clients/client', c: @client
+    li
+      h2 jobs -->
+      - @client.jobs.each do |job|
+        = render 'jobs/job', job: job

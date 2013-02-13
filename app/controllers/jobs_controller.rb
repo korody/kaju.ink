@@ -1,23 +1,17 @@
 class JobsController < ApplicationController
+
   def index
+    @jobs = Job.scoped
     if params[:type].present?
       @jobs = Job.filter(params).order('jobs.created_at DESC')
     else
       @jobs = Job.art.scoped.order('jobs.created_at DESC')
     end
-    # @jobs = eval("#{params[:controller].classify}.order(:title)")
-    respond_to do |format|
-      format.html {  }
-      format.js
-    end
   end
 
   def show
     @job = Job.find(params[:id])
-    respond_to do |format|
-      format.html { redirect_to jobs_url }
-      format.js
-    end
+    @client = @job.client
   end
 
   def new
@@ -26,38 +20,37 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.create(params[:job])
-    # if @job.save
-    #   flash[:success] = 'job created successfully'
-    #   redirect_to @job
-    # else
-    #   flash.now[:error] = 'job could not be created'
-    #   render 'new'
-    # end
+    @client = @job.client
+    respond_to do |format|
+      format.html { redirect_to edit_job_path(@job) }
+      format.js 
+    end
   end
 
   def edit
     @job = Job.find(params[:id])
+    @client = @job.client
   end
 
   def update
     @job = Job.find(params[:id])
-    if @job.update_attributes(params[:job])
-      redirect_to @job, notice: "Successfully updated job."
-    else
-      render action: 'edit'
+    @job.update_attributes!(params[:job])
+    respond_to do |format|
+      format.html { redirect_to edit_job_path(@job) }
+      format.js 
     end
   end
 
   def destroy
     Job.find(params[:id]).destroy
-    redirect_to jobs_url
+    redirect_to :back
   end
 
   # def random
   #   @random = Job.offset(rand(Job.count)).first
-  #   respond_to do |format|
-  #     format.html {  }
-  #     format.js
-  #   end
+    # respond_to do |format|
+    #   format.html {  }
+    #   format.js
+    # end
   # end
 end

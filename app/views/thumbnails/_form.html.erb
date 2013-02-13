@@ -1,0 +1,25 @@
+<%= form_for [@job, @thumbnail], remote: true do %>
+
+  <h2>add thumbnail</h1>
+    <input id='new-thumbnail' type='file' name='thumbnail[thumb]' class='btn btn-warning' multiple>
+    <% hidden_field_tag 'job_id', @job.id %>
+    <script>
+    $(function () {
+      $('#new-thumbnail').fileupload({
+        dataType: 'script',
+        url: '<%= job_thumbnails_path(@job.id) %>'
+      });
+    });
+    </script>
+
+    <ul class= 'thumbnails-thumbs'>
+  <!-- json-ajax response here, see fileupload script above, .appendTo css id:"thumbs"-->
+    </ul>
+<% end %>
+
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>

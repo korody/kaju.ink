@@ -1,8 +1,43 @@
 KajuInk::Application.routes.draw do
   
-  resources :jobs
-  resources :humans, path: 'humans', controller: :jobs
-  resources :abstracts, path: 'abstracts', controller: :jobs
+  resources :clients
+  resources :people, controller: :clients
+  resources :companies, controller: :clients 
+  
+
+  resources :jobs do
+    resources :attachments
+    resources :thumbnails
+    resources :products do
+      resources :thumbnails
+    end
+    resources :clients do
+      resources :thumbnails
+    end
+  end
+
+  resources :humans, path: 'humans', controller: :jobs do
+    resources :attachments
+    resources :thumbnails
+    resources :products do
+      resources :thumbnails
+    end
+    resources :clients do
+      resources :thumbnails
+    end
+  end
+
+  resources :abstracts, path: 'abstracts', controller: :jobs do
+    resources :attachments
+    resources :thumbnails
+    resources :products do
+      resources :thumbnails
+    end
+    resources :clients do
+      resources :thumbnails
+    end
+  end
+
   resources :serials, path: 'serials', controller: :jobs
   resources :patterns, path: 'patterns', controller: :jobs
   resources :characters, path: 'characters', controller: :jobs
@@ -13,13 +48,25 @@ KajuInk::Application.routes.draw do
   resources :layouts, path: 'layouts', controller: :jobs
   resources :archplans, path: 'archplans', controller: :jobs
   resources :maps, path: 'maps', controller: :jobs
+  
+  resources :products do
+    resources :thumbnails, except: [:update, :edit]
+  end
+
+  resources :societies, path: 'society', controller: :products do
+    resources :thumbnails
+  end
+
+  resources :urbans, path: 'urban', controller: :products do
+    resources :thumbnails
+  end
 
   match '/hello', to: 'contact#new',     as: 'hello',  via: :get
   match '/hello', to: 'contact#create',  as: 'hello',  via: :post
 
-  match '/kaju',   to: 'pages#about', as: 'about'
   match '/art',   to: 'pages#art', as: 'art'
   match '/graphic',   to: 'pages#graphic', as: 'graphic'
+  match '/kaju',   to: 'pages#about', as: 'about'
 
-  root to: 'pages#home'
+  root to: 'pages#welcome'
 end

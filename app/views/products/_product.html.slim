@@ -1,0 +1,7 @@
+li
+  .thumbnail 
+    - p.thumbnails.shuffle.first(1).each do |t|
+      = link_to image_tag(t.thumb_url).to_s, p.link, target: '_blank', class: 'thumbnail'
+    h5 = p.title if p.title?
+    / = link_to "edit product", edit_product_path(p.id), class: 'btn btn-block'
+    = link_to "delete product", product_path(p.id), method: 'delete', class: 'btn btn-danger btn-block'

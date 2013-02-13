@@ -1,32 +1,11 @@
 - provide :title, 'hello'
-.container
-  .row
-    .span6
-      = link_to 'fanpage', 'https://www.facebook.com/kaju.ink', target: '_blank'
-      = icon_tag 'facebook' 
-      = link_to 'store', 'https://www.society6.com/kajuink', target: '_blank'
-      = link_to 'store', 'https://www.urbanarts.com.br', target: '_blank'
-      = icon_tag 'shopping-cart'
-      = link_to 'phone', nil
-      = icon_tag 'phone'
-    .span6
-      - flash.each do |key, message|
-        div class="alert alert-#{key}"
-          a.close data-dismiss="alert" &times; 
-          = message
-      = render 'error_messages', object: @message
-      = simple_form_for @message, url: hello_path, html: { class: 'form-vertical' } do |f|
-        = f.input :email, wrapper: :prepend, error: false, label: false do
-          span.add-on
-            i.icon-user
-          = f.input_field :name, class: 'span4', placeholder: 'nome'
-        = f.input :name, wrapper: :prepend, error: false, label: false do
-          span.add-on
-            i.icon-envelope
-          = f.input_field :name, class: 'span4', placeholder: 'e-mail'
-        = f.input :name, wrapper: :prepend, error: false, label: false do
-          span.add-on
-            i.icon-tag
-          = f.input_field :subject, class: 'span4', placeholder: 'assunto'
-        = f.input :body, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 6}, placeholder: 'mensagem'
-        = f.submit 'enviar email', class: 'btn btn-danger'
+.container.space#hello-container
+  .row  
+    .span4#info
+      p = "#{icon_tag 'user'} kalina juzwiak".html_safe
+      p = "#{icon_tag 'envelope-alt'} hello@kajuink.com".html_safe
+      .fb-like-box data-href='https://www.facebook.com/kajuink' data-width='280' data-height='325' data-show-faces='true' data-stream='false' data-border-color='white' data-header='false'
+    .span3.offset1
+      = image_tag "girl.png", id: 'girl'
+    .span3.offset1#contact
+      = render 'form'

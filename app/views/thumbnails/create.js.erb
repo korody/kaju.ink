@@ -1,0 +1,2 @@
+$(".thumbnails-thumbs, .thumbnails-list").append("<%= j render @thumbnail, t: @thumbnail %>");
+$('.polaroid-preview').hide().fadeToggle(1500).html("<%= j render 'jobs/job', job: @job %>"); 

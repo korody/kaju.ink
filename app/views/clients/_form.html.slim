@@ -1,0 +1,14 @@
+= render 'error_messages', object: @client
+= simple_nested_form_for [@job, @client, @thumbnail], url: job_clients_path(@job.id), as: :client, html: { class: 'form-vertical' }, remote: true do |f|
+  h2 = "create client"
+  = f.simple_fields_for :thumbnails do |a|
+    = a.file_field :thumb, name: "client[thumbnails_attributes][0][thumb]", class: 'btn btn-primary'
+  br
+  br
+  = f.input :type, wrapper: :prepend, error: false, label: false do
+    span.add-on = icon_tag 'folder-open'
+    = f.select :type, %w[Person Company]  
+  = f.input :name, wrapper: :prepend, error: false, label: false do
+    span.add-on = icon_tag 'user'
+    = f.input_field :name, class: 'span4', placeholder: 'name'
+  = f.submit 'update client', class: 'btn btn-success span5'

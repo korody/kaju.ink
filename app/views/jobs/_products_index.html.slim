@@ -1,0 +1,4 @@
+.container
+  ul.thumbnails#job-gallery.products-list
+    - @job.products.each do |p|
+      = render 'products/product', p: p

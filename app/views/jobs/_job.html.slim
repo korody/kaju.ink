@@ -1,19 +1,9 @@
-.container
-  .row
-    .span5.job-container
-      p = "#{icon_tag 'user', "client"} #{job.client}".html_safe if job.client?
-      p = "#{icon_tag 'list', "client info"} #{job.client_info}".html_safe if job.client_info?
-      p = "#{icon_tag 'globe', "spot"} #{job.spot}".html_safe if job.spot?
-      p = "#{icon_tag 'tag', "title"} #{job.title}".html_safe if job.title?
-      p = "#{icon_tag 'beaker', "what"} #{job.what}".html_safe if job.what?
-      p = "#{icon_tag 'check-empty', "area"} #{job.area}".html_safe if job.area?
-      p = "#{icon_tag 'time', "duration"} #{job.duration}".html_safe if job.duration?
-      p = "#{icon_tag 'pencil', "material"} #{job.material}".html_safe if job.material?
-      p = "#{icon_tag 'align-justify', "client"} #{job.description}".html_safe if job.description?
-      - job.attachments.each do |a|
-        = image_tag a.image_url(:job).to_s
-        p = "#{icon_tag 'align-justify', "description"} #{a.description}".html_safe if a.description?
-    .span5.offset1.job-container
-      | facebook stuff
-    .span1
-      = image_tag 'up.png', id: 'up'
+/ ul.thumbnails#job-gallery
+/   - @jobs.each do |job| 
+li
+  .thumbnail 
+    - job.thumbnails.shuffle.first(1).each do |t|
+      = link_to image_tag(t.thumb_url).to_s, job, class: 'thumbnail', remote: true
+    h5 = link_to job.title, job, remote: true
+    = link_to "edit job", edit_job_path(job.id), class: 'btn btn-block'
+    = link_to "delete job", job_path(job.id), method: "delete", class: 'btn btn-danger btn-block'

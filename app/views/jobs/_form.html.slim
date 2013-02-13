@@ -1,23 +1,28 @@
-.container.edit-form
+.span5
   = render 'error_messages', object: @job
-  / = simple_nested_form_for([@job.becomes(Job)]) do |f|
-  /   - f.object = @job.becomes(@job.class)
   = simple_nested_form_for @job, as: :job, html: { class: 'form-vertical', multipart: true } do |f|
+    h2 = "#{@job.title} info".html_safe
+    ul.thumbnails-list
+      = render 'thumbnails/show' if !@job.new_record?
+    = f.simple_fields_for :thumbnails do |a|
+      = a.file_field :thumb, class: 'btn btn-warning span4', name: "job[thumbnails_attributes][0][thumb]"
+    = f.link_to_add "add thumbnail field", :thumbnails, class: 'btn btn-warning' if !@job.thumbnails.present?
+      / = a.link_to_remove "remove thumbnail field", class: 'btn btn-danger'
+    / = link_to 'upload thumbnail', new_job_thumbnail_path(@job), class: 'btn btn-warning btn-block', remote: true if !@job.new_record?
+    br
+    br
     = f.input :type, wrapper: :prepend, error: false, label: false do
       span.add-on = icon_tag 'folder-open'
       = f.select :type, %w[Human Abstract Serial Pattern Character Wall]  
-    = f.input :client, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'user'
-      = f.input_field :client, class: 'span4', placeholder: 'client'
+    = f.input :title, wrapper: :prepend, error: false, label: false do
+      span.add-on = icon_tag 'tag'
+      = f.input_field :title, class: 'span4', placeholder: 'title'
     = f.input :client_info, wrapper: :prepend, error: false, label: false do
       span.add-on = icon_tag 'list'
       = f.input_field :client_info, class: 'span4', placeholder: 'client info'
     = f.input :spot, wrapper: :prepend, error: false, label: false do
       span.add-on = icon_tag 'globe'
       = f.input_field :spot, class: 'span4', placeholder: 'spot'
-    = f.input :title, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'tag'
-      = f.input_field :title, class: 'span4', placeholder: 'title'
     = f.input :what, wrapper: :prepend, error: false, label: false do
       span.add-on = icon_tag 'beaker'
       = f.input_field :what, class: 'span4', placeholder: 'what'
@@ -30,10 +35,43 @@
     = f.input :material, wrapper: :prepend, error: false, label: false do
       span.add-on = icon_tag 'pencil'
       = f.input_field :material, class: 'span4', placeholder: 'material'
-    = f.input :description, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 6}, placeholder: 'description'
-    = f.simple_fields_for :attachments do |a|
-      = a.input :description, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 6}, placeholder: 'photo description'
-      = a.file_field :image
-      = a.link_to_remove "remove this attachment", class: 'btn btn-danger'
-    = f.link_to_add "add attachment", :attachments, class: 'btn'
-    = f.submit 'update job', class: 'btn btn-success'
+    = f.input :description, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 3}, placeholder: 'description'
+    = link_to 'upload attachments', new_job_attachment_path(@job), class: 'btn btn-info btn-block', remote: true if !@job.new_record?
+    = link_to 'upload product', new_job_product_path(@job), class: 'btn btn-primary btn-block', remote: true if !@job.new_record?
+    br
+    h2 = "#{@job.title} client info".html_safe
+    = render 'jobs/client_thumbnails' if !@job.new_record?
+    = f.simple_fields_for :client do |c|
+      = c.file_field :thumb, name: "job[client_attributes][thumbnails_attributes][0][thumb]", class: 'btn btn-danger span4'
+      br
+      br
+      = c.input :type, wrapper: :prepend, error: false, label: false do
+        span.add-on = icon_tag 'folder-open'
+        = c.select :type, %w[Person Company]  
+    = f.input :client_name, wrapper: :prepend, error: false, label: false do
+      span.add-on = icon_tag 'user'
+      = f.input_field :client_name, class: 'span4', placeholder: 'client', value: "#{@job.client.name if @job.client}"
+    / = f.link_to_add "add thumbnail field", :thumbnails, class: 'btn btn-danger btn-block' if !@client.thumbnails.present?
+    / = link_to 'upload client', edit_job_client_path(@job,@client), class: 'btn btn-danger btn-block', remote: true if !@job.new_record?
+    br
+    / = link_to 'upload multiple thumbnails', new_job_thumbnail_path(@job), class: 'btn btn-warning btn-block', remote: true if !@job.new_record?
+    br
+    = f.submit 'update job', class: 'btn btn-success span5'
+.span6.offset1
+  .attachments-uploads
+.span12
+  br
+  br
+  - if !@job.new_record?
+    h2 = "polaroid preview"
+    ul.thumbnails#job-gallery.polaroid-preview
+      = render 'jobs/job', job: @job
+    - if @client
+      h2 = "client preview" 
+      ul.thumbnails#job-gallery.client-preview
+        = render 'clients/client', c: @client
+    h2 = "attachments preview" if @job.attachments.any?
+    ul.attachments-list
+      = render 'attachments/show'
+    h2 = "products preview" if @job.products.any?
+    = render 'jobs/products_index'

@@ -1,0 +1,8 @@
+= render 'jobs/filter_bar'
+.container.space
+  #show-clients
+    ul.thumbnails#job-gallery.clients-list
+      - @clients.each do |c|
+        = render 'client', c: c
+#view-client
+#view-job

@@ -1,9 +1,9 @@
-$('#show-job').hide();
-$('#show-job').html("<%= j render 'job', job: @job %>");
-$('#show-job').fadeToggle(1500);
+$('#view-job').hide().fadeToggle(1500).html("<%= j render 'show', job: @job %>");
 
-var container = $("#show-job");
+var container = $("#view-job");
 var page = $("html,body");
+var products = $("#view-products");
+var client = $("#view-client");
 
 $('html,body').animate({
   scrollTop: container.offset().top - 145 },
@@ -16,3 +16,24 @@ $(function() {
     2000);
   });
 });
+
+
+$(function() {
+  $('#show-products').click(function() {
+    $('#view-products').fadeToggle(1500).html("<%= j render 'products_index', job: @job %>");
+    $('html,body').animate({
+      scrollTop: products.offset().top - 145 },
+    2000);
+  });
+});
+
+$(function() {
+  $('#show-client').click(function() {
+    $('#view-client').hide().fadeToggle(1500).html("<%= j render 'client_index', c: @client %>");
+    $('html,body').animate({
+      scrollTop: client.offset().top - 145 },
+    2000);
+  });
+});
+
+FB.XFBML.parse(document.getElementById('fb-like'));

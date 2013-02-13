@@ -7,10 +7,12 @@ class ContactController < ApplicationController
     @message = Message.new(params[:message])
     if @message.valid?
       NotificationsMailer.new_message(@message).deliver
-      flash[:success] = 'Thank you! I will contact you as soon as possible!'
-      redirect_to hello_path
+      flash[:success] = "Thank you! I'll be in touch as soon as possible!"
     else
-      render 'new'
+      respond_to do |format|
+        format.html {  }
+        format.js
+      end
     end
   end
 end

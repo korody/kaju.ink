@@ -1,22 +1,38 @@
 @import 'presets'
 
 body
-  // margin-top: 105px
+  background: url("quitanda.jpg") no-repeat fixed center
+  background-size: contain
 
+  #ghost
+    background-color: white
+    height: 100%
+    left: 0
+    opacity: 0.9
+    position: fixed
+    top: 0
+    width: 100%
+    z-index: -2
+
+  #shadow
+    background-color: white
+    height: 100%
+    left: 0
+    position: fixed
+    top: 0
+    width: 100%
+    z-index: -1
+  
 
   /* ---------- HOME ------------ */ 
 
 
   #quitanda
     // margin-top: 5%
+    min-height: 600px
+    min-width: 1920px
     position: relative
     text-align: center
-    // background: url("quitanda.jpg") no-repeat
-    // background-size: 1920px 600px
-
-    img
-      min-height: 600px
-      min-width: 1920px
 
   #hello, #art, #kaju, #shop, #graphic
     font-size: 30px
@@ -79,10 +95,73 @@ body
       color: $link
 
 
+
   /* ---------- ABOUT ------------ */ 
 
 
   #infograph
-    margin-top: 200px
+    position: relative
+    width: 1920px
+
+  #say-hello
     position: absolute
-    bottom: 0%
+    top: 110px
+    right: 110px
+    width: 130px
+
+
+  /* ---------- HELLO ------------ */
+
+  #hello-container
+    // background: url('girl.png') no-repeat center
+    height: 440px
+
+    input.btn-link
+      color: $link
+      font-size: 18px
+      text-shadow: none
+      text-decoration: none
+
+      &:hover
+        color: $link
+
+    textarea, input
+      background-color: transparent
+
+  #girl
+    height: 420px
+    min-width: 191px
+
+  #info
+    color: black
+    font-size: 20px
+
+    p
+      margin-bottom: 20px
+      margin-top: 10px
+      vertical-align: top
+
+    i 
+      margin-left: 6px
+      margin-right: 12px
+
+    a
+      color: $link
+
+      &:hover
+        color: black
+
+    li.active > a
+      color: black
+
+  #contact
+    position: relative
+
+  #loading
+    background: url('loading.gif') no-repeat center
+    height: 300px
+    width: 100%
+    position: absolute
+    bottom: 0
+    display: none
+

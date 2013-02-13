@@ -13,4 +13,7 @@ class PagesController < ApplicationController
     @jobs = Job.graphic.scoped.order('jobs.created_at DESC')
   end
 
+  def welcome
+  end
+
 end

@@ -1,4 +1,6 @@
 = render 'jobs/filter_bar'
-#show-jobs
-  = render 'jobs/jobs'
-#show-job
+.container.space
+  #show-jobs
+    = render 'jobs/index'
+    = link_to "new job", new_job_path, class: 'btn span2'
+#view-job

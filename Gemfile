@@ -35,3 +35,4 @@ gem 'nested_form'
 gem "fog", "~> 1.3.1"
 gem 'aws-s3'
 gem "rmagick"
+gem 'jbuilder'

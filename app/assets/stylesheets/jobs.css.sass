@@ -6,90 +6,34 @@
 
 #job-art
   border-bottom: 1px dashed $border
-  // border-top: 1px dashed $border
   background-color: white
   top: 106px
-  // left: 4px
-  // position: absolute
-
-  ul.nav > li
-    // height: 65px
-    // width: 100px    
-
-    a
-      // color: white
-      // font-size: 17px
-      // padding: 30px 0 10px
-      // text-align: center
-      // text-shadow: none
-
-      // &:hover
-      //   color: $link
-
-    a.active
-      color: $link
-
-    #nav-links
-      background: url('placa.png') no-repeat center
-
-    #nav-links-human
-      background: url('people.jpg') no-repeat center 
-
-    #nav-links-abstract
-      background: url('abstract.jpg') no-repeat center 
-
-    #nav-links-serial
-      background: url('serial.jpg') no-repeat center 
-
-    #nav-links-pattern
-      background: url('pattern.jpg') no-repeat center 
-
-    #nav-links-character
-      background: url('character.jpg') no-repeat center 
-
-    #nav-links-wall
-      background: url('wall.jpg') no-repeat center 
 
 
 /* ---------- JOBS GALLERY ------------ */ 
 
 
-#show-jobs
-  margin-bottom: 20px
-  margin-top: 180px
-
 ul#job-gallery
+  margin-bottom: 20px
+  margin-top: 40px
 
   li
-    // height: 200px
-    // position: relative
-    // width: 200px
 
     img
       height: 190px
       width: 190px
 
-    // a
-    //   color: $link
-    //   text-decoration: none
+  .thumbnail
+    background-color: white
+
+#attachments-uploads
+  display: none
+
     
-    // p
-      // font-size: 18px
-      // padding-bottom: 80px
-      // padding-top: 80px
-      // position: absolute
-      // text-align: center
-      // text-shadow: none
-      // top: 100px
-      // left: 8px
-      // width: 190px
-
-
-
 /* ---------- JOBS SHOW ------------ */ 
 
 
-#show-job
+#view-job, #view-products, #view-client, #view-client
   border-bottom: 1px dashed $border
   border-top: 1px dashed $border
   display: none
@@ -98,10 +42,19 @@ ul#job-gallery
   padding-bottom: 30px
   padding-top: 30px
 
+  p > a
+    color: $link
+
+#take-home
+  margin-bottom: 20px
+
+  a
+    color: $link
+    font-size: 24px
+
 #up
-  text-align: right
   cursor: pointer
+  text-align: right
 
 .edit-form
-  margin-top: 100px
   padding: 40px

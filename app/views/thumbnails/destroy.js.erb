@@ -1,0 +1,3 @@
+$(".thumbnails-list, .thumbnails-thumbs").hide().fadeToggle(1500).html("<%= j render 'show' %>"); 
+$('#job-gallery').hide().fadeToggle(1500).html("<%= j render 'jobs/job', job: @job %>"); 
+$('#job-form').hide().fadeToggle(1500).html("<%= j render 'jobs/form', job: @job %>"); 

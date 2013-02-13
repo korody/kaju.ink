@@ -1,0 +1,7 @@
+$('.attachments-uploads').hide().fadeToggle(1500).html("<%= j render 'form' %>"); 
+
+var attachments = $(".attachments-uploads");
+
+$('html,body').animate({
+  scrollTop: attachments.offset().top - 145 },
+2000);

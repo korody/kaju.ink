@@ -1,0 +1,24 @@
+<%= form_for [@job, @attachment], remote: true do %>
+
+  <h2>add multiple attachments</h1>
+    <input id='new-attachment' type='file' name='attachment[image]' class='btn btn-info' multiple>
+    <script>
+    $(function () {
+      $('#new-attachment').fileupload({
+        dataType: 'script',
+        url: '<%= job_attachments_path(@job.id) %>'
+      });
+    });
+    </script>
+
+    <ul class= 'attachments-thumbs'>
+  <!-- json-ajax response here, see fileupload script above, .appendTo css id:"thumbs"-->
+    </ul>
+<% end %>
+
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>

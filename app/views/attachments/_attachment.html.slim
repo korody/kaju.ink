@@ -1,0 +1,4 @@
+li 
+  = image_tag a.image_url.to_s
+  br
+  = link_to "delete attachment", job_attachment_path(@job, a), method: "delete", class: 'btn btn-danger', remote: true
