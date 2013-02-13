@@ -67,6 +67,7 @@ KajuInk::Application.routes.draw do
   match '/art',   to: 'pages#art', as: 'art'
   match '/graphic',   to: 'pages#graphic', as: 'graphic'
   match '/kaju',   to: 'pages#about', as: 'about'
+  match '/home',   to: 'pages#home', as: 'home'
 
   root to: 'pages#welcome'
 end
