@@ -1,8 +1,9 @@
+- provide :title, 'graphic'
 = render 'jobs/filter_bar'
 .container.space
   #view-jobs
     ul.thumbnails#job-gallery
       - @jobs.each do |job|
         = render 'jobs/job', job: job
-    = link_to "new job", new_job_path, class: 'btn span2'
+    = link_to "new job", new_job_path, class: 'btn btn-large'
 #view-job

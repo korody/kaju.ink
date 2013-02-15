@@ -4,13 +4,15 @@ var container = $("#view-job");
 var page = $("html,body");
 var products = $("#view-products");
 var client = $("#view-client");
+var up = $("#up");
 
 $('html,body').animate({
   scrollTop: container.offset().top - 145 },
 2000);
 
+
 $(function() {
-  $('#up').click(function() {
+  $(up).click(function() {
     $('html,body').animate({
       scrollTop: page.offset().top - 0 },
     2000);

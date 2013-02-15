@@ -1,11 +1,12 @@
 class JobsController < ApplicationController
 
+  before_filter :authenticate, except: [:index, :show]
+  
   def index
-    @jobs = Job.scoped
     if params[:type].present?
-      @jobs = Job.filter(params).order("RANDOM()").first  
+      @jobs = Job.filter(params).order("RANDOM()")
     else
-      @jobs = Job.art.scoped.order("RANDOM()").first
+      @jobs = Job.art.scoped.order("RANDOM()")
     end
   end
 
@@ -44,7 +45,7 @@ class JobsController < ApplicationController
 
   def destroy
     Job.find(params[:id]).destroy
-    redirect_to :back
+    redirect_to art_path
   end
 
   # def random

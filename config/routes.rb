@@ -41,5 +41,5 @@ KajuInk::Application.routes.draw do
   match '/kaju',   to: 'pages#about', as: 'about'
   match '/home',   to: 'pages#home', as: 'home'
 
-  root to: 'pages#HOME'
+  root to: 'pages#welcome'
 end

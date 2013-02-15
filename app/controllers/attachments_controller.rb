@@ -1,6 +1,7 @@
 class AttachmentsController < ApplicationController
     
   before_filter :the_job
+  before_filter :authenticate, except: [:index, :show]
   
   def index
     @attachments = Attachment.where("attachable_id = ?", the_job)

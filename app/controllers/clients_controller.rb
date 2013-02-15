@@ -1,5 +1,7 @@
 class ClientsController < ApplicationController
   
+  before_filter :authenticate, except: [:index, :show]
+  
   def index
     if params[:type].present?
       @clients = Client.filter(params).order('clients.created_at DESC')

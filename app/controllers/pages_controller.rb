@@ -1,4 +1,8 @@
 class PagesController < ApplicationController
+  
+  def welcome
+  end
+
   def home
   end
 
@@ -11,9 +15,6 @@ class PagesController < ApplicationController
 
   def graphic
     @jobs = Job.graphic.scoped.order("RANDOM()")
-  end
-
-  def welcome
   end
 
 end

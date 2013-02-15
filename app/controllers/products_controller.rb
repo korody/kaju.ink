@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
 
   # before_filter :from_job
+  before_filter :authenticate, except: [:index, :show]
   
   def index
     if params[:type].present?
-      @products = Product.filter(params).order('products.created_at DESC')
+      @products = Product.filter(params).order("RANDOM()")
     else
-      @products = Product.scoped.order('products.created_at DESC')
+      @products = Product.scoped.order("RANDOM()")
     end
     respond_to do |format|
       format.html {  }

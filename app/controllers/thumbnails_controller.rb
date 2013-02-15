@@ -1,6 +1,7 @@
 class ThumbnailsController < ApplicationController
     
   before_filter :what_job
+  before_filter :authenticate, except: [:index, :show]
   
   def index
     @thumbnails = Thumbnail.where("thumbable_id = ?", what_job)
