@@ -44,20 +44,26 @@ ul#job-gallery
 .job-container
   padding-bottom: 30px
   padding-top: 30px
+  
 
   p > a
     color: $link
+    
+#up-container
+  position: relative
 
-#take-home
-  
-  img
-    height: 14px
-    width: 14px
+  img#up
+    cursor: pointer
+    height: 90px
+    position: absolute
+    right: 0
+    width: 45px
+    z-index: 2
 
 #job-attachments
   position: relative
 
-  a.show-products > img
+  a#buy > img
     left: 0
     position: absolute
     top: 20px
@@ -65,9 +71,6 @@ ul#job-gallery
     width: 90px
     z-index: 2
 
-#up
-  cursor: pointer
-  text-align: right
 
 .edit-form
   padding: 40px

@@ -13,3 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+public/attachment
+public/attachments-cache
+public/thumbnail

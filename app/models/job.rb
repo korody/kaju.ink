@@ -71,3 +71,21 @@ end
 
 class Wall < Job
 end
+
+class Branding < Job
+end
+
+class Cocreation < Job
+end
+
+class Event < Job
+end
+
+class Layout < Job
+end
+
+class Archplan < Job
+end
+
+class Map < Job
+end
