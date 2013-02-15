@@ -9,11 +9,6 @@ class AttachmentsController < ApplicationController
 
   def show
     @attachment = Attachment.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @attachment }
-    end
   end
 
 

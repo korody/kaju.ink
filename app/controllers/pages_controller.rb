@@ -6,11 +6,11 @@ class PagesController < ApplicationController
   end
 
   def art
-    @jobs = Job.art.scoped.order('jobs.created_at DESC')
+    @jobs = Job.art.scoped.order("RANDOM()")
   end
 
   def graphic
-    @jobs = Job.graphic.scoped.order('jobs.created_at DESC')
+    @jobs = Job.graphic.scoped.order("RANDOM()")
   end
 
   def welcome

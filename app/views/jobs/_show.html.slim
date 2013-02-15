@@ -1,7 +1,9 @@
 .container
   .row
+    .span12
+      #view-client
     .span5.job-container
-      p = "#{icon_tag 'user', "client"} #{link_to job.client.name, '#', id: 'show-client', remote: true}".html_safe
+      p = "#{icon_tag 'user', "client"} #{link_to @client.name, '#', id: 'show-client', remote: true}".html_safe if @client
       p = "#{icon_tag 'list', "client info"} #{job.client_info}".html_safe if job.client_info?
       p = "#{icon_tag 'globe', "spot"} #{job.spot}".html_safe if job.spot?
       p = "#{icon_tag 'tag', "title"} #{job.title}".html_safe if job.title?
@@ -10,14 +12,13 @@
       p = "#{icon_tag 'time', "duration"} #{job.duration}".html_safe if job.duration?
       p = "#{icon_tag 'pencil', "material"} #{job.material}".html_safe if job.material?
       p = "#{icon_tag 'align-justify', "client"} #{job.description}".html_safe if job.description?
+      p#take-home = link_to (image_tag "cart.png") + "take it home!", '#', class: 'show-products', remote: true if @products.any?
     .span5.job-container
       .span5#fb-like
         .fb-like data-href='https://www.facebook.com/kajuink' data-send='false' data-width='300' data-show-faces='false' data-font='tahoma'
     .span1.offset1
       = image_tag 'up.png', id: 'up'
     .span12
-      #view-client
+      #view-products
+    .span12
       = render 'attachments/show'
-      - if @products
-        #take-home = link_to (image_tag "cart.png") + "take it home!", '#', id: 'show-products', remote: true
-#view-products

@@ -3,15 +3,16 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.scoped
     if params[:type].present?
-      @jobs = Job.filter(params).order('jobs.created_at DESC')
+      @jobs = Job.filter(params).order("RANDOM()").first  
     else
-      @jobs = Job.art.scoped.order('jobs.created_at DESC')
+      @jobs = Job.art.scoped.order("RANDOM()").first
     end
   end
 
   def show
     @job = Job.find(params[:id])
     @client = @job.client
+    @products = @job.products
   end
 
   def new

@@ -16,28 +16,8 @@ KajuInk::Application.routes.draw do
     end
   end
 
-  resources :humans, path: 'humans', controller: :jobs do
-    resources :attachments
-    resources :thumbnails
-    resources :products do
-      resources :thumbnails
-    end
-    resources :clients do
-      resources :thumbnails
-    end
-  end
-
-  resources :abstracts, path: 'abstracts', controller: :jobs do
-    resources :attachments
-    resources :thumbnails
-    resources :products do
-      resources :thumbnails
-    end
-    resources :clients do
-      resources :thumbnails
-    end
-  end
-
+  resources :humans, path: 'humans', controller: :jobs
+  resources :abstracts, path: 'abstracts', controller: :jobs
   resources :serials, path: 'serials', controller: :jobs
   resources :patterns, path: 'patterns', controller: :jobs
   resources :characters, path: 'characters', controller: :jobs
@@ -50,14 +30,6 @@ KajuInk::Application.routes.draw do
   resources :maps, path: 'maps', controller: :jobs
   
   resources :products do
-    resources :thumbnails, except: [:update, :edit]
-  end
-
-  resources :societies, path: 'society', controller: :products do
-    resources :thumbnails
-  end
-
-  resources :urbans, path: 'urban', controller: :products do
     resources :thumbnails
   end
 
@@ -69,5 +41,5 @@ KajuInk::Application.routes.draw do
   match '/kaju',   to: 'pages#about', as: 'about'
   match '/home',   to: 'pages#home', as: 'home'
 
-  root to: 'pages#welcome'
+  root to: 'pages#HOME'
 end

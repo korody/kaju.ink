@@ -13,7 +13,7 @@
     br
     = f.input :type, wrapper: :prepend, error: false, label: false do
       span.add-on = icon_tag 'folder-open'
-      = f.select :type, %w[Human Abstract Serial Pattern Character Wall]  
+      = f.select :type, Job.types 
     = f.input :title, wrapper: :prepend, error: false, label: false do
       span.add-on = icon_tag 'tag'
       = f.input_field :title, class: 'span4', placeholder: 'title'
@@ -36,11 +36,12 @@
       span.add-on = icon_tag 'pencil'
       = f.input_field :material, class: 'span4', placeholder: 'material'
     = f.input :description, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 3}, placeholder: 'description'
-    = link_to 'upload attachments', new_job_attachment_path(@job), class: 'btn btn-info btn-block', remote: true if !@job.new_record?
-    = link_to 'upload product', new_job_product_path(@job), class: 'btn btn-primary btn-block', remote: true if !@job.new_record?
+    - if !@job.new_record?
+      = link_to 'upload attachments', new_job_attachment_path(@job), class: 'btn btn-info btn-block', remote: true
+      = link_to 'upload product', new_job_product_path(@job), class: 'btn btn-primary btn-block', remote: true
     br
     h2 = "#{@job.title} client info".html_safe
-    = render 'jobs/client_thumbnails' if !@job.new_record?
+    = render 'jobs/client_thumbnails' if !@job.new_record? && @client
     = f.simple_fields_for :client do |c|
       = c.file_field :thumb, name: "job[client_attributes][thumbnails_attributes][0][thumb]", class: 'btn btn-danger span4'
       br
@@ -56,7 +57,7 @@
     br
     / = link_to 'upload multiple thumbnails', new_job_thumbnail_path(@job), class: 'btn btn-warning btn-block', remote: true if !@job.new_record?
     br
-    = f.submit 'update job', class: 'btn btn-success span5'
+    = f.submit 'update job', class: 'btn btn-large btn-success span5'
 .span6.offset1
   .attachments-uploads
 .span12
@@ -68,10 +69,13 @@
       = render 'jobs/job', job: @job
     - if @client
       h2 = "client preview" 
-      ul.thumbnails#job-gallery.client-preview
+      ul.thumbnails#job-gallery.clients-list
         = render 'clients/client', c: @client
     h2 = "attachments preview" if @job.attachments.any?
     ul.attachments-list
       = render 'attachments/show'
     h2 = "products preview" if @job.products.any?
     = render 'jobs/products_index'
+    .row
+      .span5
+        = link_to "delete job", job_path(@job.id), method: "delete", class: 'btn btn-large btn-danger btn-block', confirm: "sure?"

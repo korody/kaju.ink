@@ -3,7 +3,7 @@ class Job < ActiveRecord::Base
 
   belongs_to :client, dependent: :destroy
 
-  has_many :attachments, as: :attachable
+  has_many :attachments, as: :attachable, dependent: :destroy
 
   has_many :thumbnails, as: :thumbable, dependent: :destroy
   
@@ -23,10 +23,14 @@ class Job < ActiveRecord::Base
   scope :graphic, where(type: GRAPHIC)
 
   before_save :assign_client
-  # attr_accessor :client_name
+  attr_accessor :client_name
 
   def self.filter(params)
     jobs = Job.where(type: params[:type].singularize.capitalize) if params[:type]
+  end
+
+  def self.types
+    TYPES
   end
 
   def self.artbar
@@ -43,7 +47,8 @@ class Job < ActiveRecord::Base
     if client_name
       # some_client = Client.find_or_create_by_name(client_name)
       some_client = Client.where(name: client_name).first_or_create!
-      self.client_id = some_client.id
+      self.client_id = some_client ? some_client.id : 0
+      # self.client_id = some_client.id
     end
   end
 

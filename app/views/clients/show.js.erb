@@ -1,1 +1,14 @@
-$('#view-client').hide().fadeToggle(1500).html("<%= j render 'show' %>");
+var client = $('#<%= dom_id @client %>');
+
+$(client).children('a#arrow-jobs').toggle(400);
+$("<%= j render 'show', c: @client %>").appendTo(client);
+
+
+
+$(function() {
+  $(client).click(function() {
+    $(this).children('a#arrow-jobs').toggle(400);
+    $(this).children('li').toggle(400);
+    return false;
+  });
+});

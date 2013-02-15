@@ -18,17 +18,12 @@ class ProductsController < ApplicationController
   def show
     @job = Job.find(params[:job_id])
     @product = Product.find(params[:id])
-
-    # respond_to do |format|
-    #   format.html # show.html.erb
-    #   format.json { render json: @product }
-    # end
   end
 
 
   def new
     @job = Job.find(params[:job_id])
-    @product = @job.products.build
+    @product = @job.products.new
   end
 
 

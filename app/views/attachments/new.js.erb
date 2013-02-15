@@ -1,4 +1,4 @@
-$('.attachments-uploads').hide().fadeToggle(1500).html("<%= j render 'form' %>"); 
+$('.attachments-uploads').hide().fadeToggle(1500).html("<%= j render 'form', job_id: @job.id %>"); 
 
 var attachments = $(".attachments-uploads");
 

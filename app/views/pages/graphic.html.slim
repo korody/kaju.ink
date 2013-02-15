@@ -1,6 +1,6 @@
 = render 'jobs/filter_bar'
 .container.space
-  #show-jobs
+  #view-jobs
     ul.thumbnails#job-gallery
       - @jobs.each do |job|
         = render 'jobs/job', job: job

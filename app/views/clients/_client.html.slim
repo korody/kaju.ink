@@ -1,7 +1,9 @@
 li
-  .thumbnail 
-    - c.thumbnails.shuffle.first(1).each do |t|
-      = link_to image_tag(t.thumb_url).to_s, c, class: 'thumbnail', remote: true
-    h5 = c.name if c.name?
-    / = link_to "edit client", edit_client_path(c.id), class: 'btn btn-block'
-    = link_to "delete client", client_path(c.id), method: 'delete', class: 'btn btn-danger btn-block'
+  = div_for c do
+    = link_to image_tag("reveal-jobs.png"), c, id: 'arrow-jobs', remote: true
+    .thumbnail 
+      - c.thumbnails.shuffle.first(1).each do |t|
+        = link_to image_tag(t.thumb_url).to_s, c, class: 'thumbnail', remote: true
+      h5 = c.name if c.name?
+      / = link_to "edit client", edit_client_path(c.id), class: 'btn btn-block'
+      = link_to "delete client", client_path(c.id), method: 'delete', class: 'btn btn-danger btn-block'
