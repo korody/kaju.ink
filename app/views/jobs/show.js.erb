@@ -1,28 +1,42 @@
-$('#view-job').hide().fadeToggle(1500).html("<%= j render 'show', job: @job %>");
+ $('#view-job').hide().fadeToggle(1500).html("<%= j render 'show', job: @job %>");
 
-var container = $("#view-job");
-var page = $("html,body");
-var products = $("#view-products");
-var client = $("#view-client");
-var up = $("#up");
+var container = $("#view-job"),
+    page = $("html,body"),
+    products = $("#view-products"),
+    client = $("#view-client"),
+    up = $("img#up");
 
-$('html,body').animate({
+$(page).animate({
   scrollTop: container.offset().top - 145 },
 2000);
 
 
 $(function() {
   $(up).click(function() {
-    $('html,body').animate({
+    $(page).animate({
       scrollTop: page.offset().top - 0 },
     2000);
   });
 });
 
 
+$(window).scroll(function () {
+  if($(window).scrollTop() >= (container.offset().top - 145)) {
+    up.css({
+      position: 'fixed',
+      top: '145px'      
+    });
+    // alert($(window).scrollTop() - container.offset().top);
+  } else {
+    up.css({
+      position: 'static'
+    })
+  }
+});
+
 
 $(function() {
-  $('.show-products').click(function() {
+  $('#buy').click(function() {
     $('#view-products').fadeToggle(1500).html("<%= j render 'products_index', job: @job %>");
     $('html,body').animate({
       scrollTop: products.offset().top - 145 },
@@ -41,3 +55,15 @@ $(function() {
 });
 
 FB.XFBML.parse(document.getElementById('fb-like'));
+// var sUrl = window.location;
+// document.getElementById('fb').setAttribute('href', sUrl);
+
+// $(document).ajaxComplete(function(){
+//   try{
+//     FB.XFBML.parse(); 
+//   }catch(ex){}
+// });
+
+$('#view-job').on('contextmenu', 'img', function(e) { 
+  return false; 
+});

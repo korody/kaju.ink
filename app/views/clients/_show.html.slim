@@ -1,2 +1,3 @@
-- c.jobs.each do |job|
-  = render 'jobs/job', job: job  
+ul.thumbnails.pop-job
+  - c.jobs.each do |job|
+    = render 'jobs/job', job: job

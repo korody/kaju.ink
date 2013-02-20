@@ -1,14 +1,8 @@
-var client = $('#<%= dom_id @client %>');
+var client = $('#<%= dom_id @client %>'),
+    pop = '.reveal-job',
+    arrow = 'a#arrow-jobs';
 
-$(client).children('a#arrow-jobs').toggle(400);
-$("<%= j render 'show', c: @client %>").appendTo(client);
-
-
-
-$(function() {
-  $(client).click(function() {
-    $(this).children('a#arrow-jobs').toggle(400);
-    $(this).children('li').toggle(400);
-    return false;
-  });
-});
+client.children(arrow).toggle(400);
+client.parent('li').css('opacity','0.8').next(pop).toggle().html("<%= j render 'show', c: @client %>");
+// client.parent('li').next(pop).effect('highlight', { color: '#FFA07A' }, 2000);
+// client.parent('li').next(pop).css('background-color', '#FFA07A');

@@ -2,7 +2,7 @@
   .alert.alert-error
     = content_tag :button, '&times;'.html_safe, class: 'close', data: { dismiss: 'alert' }
     p
-      strong Oops, looks like there were some problems:
+      strong Oops!
     ul
       - object.errors.full_messages.each do |message|
         li = message

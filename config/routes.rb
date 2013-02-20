@@ -22,6 +22,7 @@ KajuInk::Application.routes.draw do
   resources :patterns, path: 'patterns', controller: :jobs
   resources :characters, path: 'characters', controller: :jobs
   resources :walls, path: 'walls', controller: :jobs
+  resources :expos, path: 'expos', controller: :jobs
   resources :brandings, path: 'brandings', controller: :jobs
   resources :cocreations, path: 'cocreations', controller: :jobs
   resources :events, path: 'events', controller: :jobs

@@ -15,8 +15,8 @@
       / p#take-home = link_to (image_tag "cart.png") + "take it home!", '#', class: 'show-products', remote: true if @products.any?
     .span5.job-container
       .span5#fb-like
-        .fb-like data-href='https://www.facebook.com/kajuink' data-send='false' data-width='300' data-show-faces='false' data-font='tahoma'
-    .span1.offset1#up-container
+        .fb-like#fb data-send='false' data-width='300' data-show-faces='false' data-font='tahoma'
+    .span1.offset1
       = image_tag 'up.png', id: 'up'
     .span12
       #view-products
