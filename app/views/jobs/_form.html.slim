@@ -39,6 +39,7 @@
     - if !@job.new_record?
       = link_to 'upload attachments', new_job_attachment_path(@job), class: 'btn btn-info btn-block', remote: true
       = link_to 'upload product', new_job_product_path(@job), class: 'btn btn-primary btn-block', remote: true
+      = link_to 'upload multiple thumbnails', new_job_thumbnail_path(@job), class: 'btn btn-warning btn-block', remote: true
     br
     h2 = "#{@job.title} client info".html_safe
     = render 'jobs/client_thumbnails' if !@job.new_record? && @client
@@ -55,10 +56,9 @@
     / = f.link_to_add "add thumbnail field", :thumbnails, class: 'btn btn-danger btn-block' if !@client.thumbnails.present?
     / = link_to 'upload client', edit_job_client_path(@job,@client), class: 'btn btn-danger btn-block', remote: true if !@job.new_record?
     br
-    / = link_to 'upload multiple thumbnails', new_job_thumbnail_path(@job), class: 'btn btn-warning btn-block', remote: true if !@job.new_record?
     br
     = f.submit 'update job', class: 'btn btn-large btn-success span5'
-.span6.offset1
+.span6.offset1s
   .attachments-uploads
 .span12
   br

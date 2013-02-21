@@ -1,7 +1,7 @@
 class Job < ActiveRecord::Base
   attr_accessible :area, :client_name, :client_info, :description, :effort, :material, :spot, :title, :type, :what, :duration, :attachments_attributes, :thumbnails_attributes, :products_attributes, :client_attributes
 
-  belongs_to :client, dependent: :destroy
+  belongs_to :client
 
   has_many :attachments, as: :attachable, dependent: :destroy
 
@@ -13,11 +13,11 @@ class Job < ActiveRecord::Base
 
   accepts_nested_attributes_for :attachments, :thumbnails, :products, :client
 
-  TYPES = %w[Human Abstract Serial Pattern Character Wall Expo Branding Co-creation Event Layout Archplan Map]
+  TYPES = %w[Human Abstract Serial Character Wall Expo Pattern Branding Institutional Co-creation Event Layout Archplan Map]
   validates :type, presence: true, inclusion: { in: TYPES }
   
-  ART = %w[Human Abstract Serial Pattern Character Wall Expo]
-  GRAPHIC = %w[Branding Cocreation Event Layout Archplan Map]
+  ART = %w[Human Abstract Serial Character Wall Expo]
+  GRAPHIC = %w[Pattern Branding Institutional Cocreation Event Layout Archplan Map]
 
   scope :art, where(type: ART)
   scope :graphic, where(type: GRAPHIC)
@@ -63,9 +63,6 @@ end
 class Serial < Job
 end
 
-class Pattern < Job
-end
-
 class Character < Job
 end
 
@@ -73,6 +70,9 @@ class Wall < Job
 end
 
 class Expo < Job
+end
+
+class Pattern < Job
 end
 
 class Branding < Job
@@ -85,6 +85,9 @@ class Event < Job
 end
 
 class Layout < Job
+end
+
+class Institutional < Job
 end
 
 class Archplan < Job
