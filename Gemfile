@@ -25,6 +25,7 @@ group :assets do
 end
 
 group :production do
+  gem 'heroku', '>= 2.26.3'
 end
 
 group :development do

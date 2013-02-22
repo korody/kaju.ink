@@ -1,4 +1,4 @@
-ul.thumbnails-list
+ul
   - @job.client.thumbnails.each do |t|
     li 
       = link_to image_tag(t.thumb_url.to_s), job_thumbnail_path(@job,t)

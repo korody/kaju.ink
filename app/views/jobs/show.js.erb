@@ -37,22 +37,25 @@ $(window).scroll(function () {
 
 $(function() {
   $('#buy').click(function() {
-    $('#view-products').fadeToggle(1500).html("<%= j render 'products_index', job: @job %>");
-    $('html,body').animate({
-      scrollTop: products.offset().top - 145 },
-    2000);
+    products.fadeToggle(1500).html("<%= j render 'products_index', job: @job %>");
   });
 });
 
 
 $(function() {
   $('#show-client').click(function() {
-    $('#view-client').hide().fadeToggle(1500).html("<%= j render 'client_index', c: @client if @client %>");
-    $('html,body').animate({
+    client.hide().fadeToggle(1500).html("<%= j render 'client_index', c: @client if @client %>");
+    page.animate({
       scrollTop: client.offset().top - 145 },
     2000);
   });
 });
+
+
+container.on('contextmenu', 'img', function(e) { 
+  return false; 
+});
+
 
 FB.XFBML.parse(document.getElementById('fb-like'));
 // var sUrl = window.location;
@@ -63,7 +66,3 @@ FB.XFBML.parse(document.getElementById('fb-like'));
 //     FB.XFBML.parse(); 
 //   }catch(ex){}
 // });
-
-$('#view-job').on('contextmenu', 'img', function(e) { 
-  return false; 
-});

@@ -1,10 +1,10 @@
 <%= form_for [@job, @attachment], url: job_attachments_path(@job.id), as: :attachment, remote: true do %>
 
   <h2>add multiple attachments</h1>
-    <input id='new-attachment' type='file' name='attachment[image]' class='btn btn-info' multiple>
+    <input id='new_attachment' type='file' name='attachment[image]' class='btn btn-info' multiple>
     <script>
     $(function () {
-      $('#new-attachment').fileupload({
+      $('#new_attachment').fileupload({
         dataType: 'script',
         url: '<%= job_attachments_path(@job.id) %>'
       });
@@ -16,9 +16,6 @@
     </ul>
 <% end %>
 
-<script id="template-upload" type="text/x-tmpl">
-<div class="upload">
-  {%=o.name%}
-  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+<div id="progress">
+  <div class="bar" style="width: 0%;"></div>
 </div>
-</script>

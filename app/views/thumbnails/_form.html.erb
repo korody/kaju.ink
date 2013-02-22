@@ -1,11 +1,11 @@
-<%= form_for [@job, @thumbnail], remote: true do %>
+<%= form_for [@job, @thumbnail], url: job_thumbnails_path(@job.id), as: :thumbnail, remote: true do %>
 
   <h2>add thumbnail</h1>
-    <input id='new-thumbnail' type='file' name='thumbnail[thumb]' class='btn btn-warning' multiple>
+    <input id='new_thumbnail' type='file' name='thumbnail[thumb]' class='btn btn-warning' multiple>
     <% hidden_field_tag 'job_id', @job.id %>
     <script>
     $(function () {
-      $('#new-thumbnail').fileupload({
+      $('#new_thumbnail').fileupload({
         dataType: 'script',
         url: '<%= job_thumbnails_path(@job.id) %>'
       });

@@ -12,7 +12,6 @@
       p = "#{icon_tag 'time', "duration"} #{job.duration}".html_safe if job.duration?
       p = "#{icon_tag 'pencil', "material"} #{job.material}".html_safe if job.material?
       p = "#{icon_tag 'align-justify', "client"} #{job.description}".html_safe if job.description?
-      / p#take-home = link_to (image_tag "cart.png") + "take it home!", '#', class: 'show-products', remote: true if @products.any?
     .span5.job-container
       .span5#fb-like
         .fb-like#fb data-send='false' data-width='300' data-show-faces='false' data-font='tahoma'
