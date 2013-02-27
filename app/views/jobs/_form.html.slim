@@ -40,7 +40,7 @@
       = f.input_field :website, class: 'span4', placeholder: 'website'    
     = f.input :video, wrapper: :prepend, error: false, label: false do
       span.add-on = icon_tag 'play'
-      = f.input_field :video, class: 'span4', placeholder: 'video (youtube url)'
+      = f.input_field :video, class: 'span4', placeholder: 'video (youtube url) !!NOT WORKING YET!!'
     = f.input :description, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 3}, placeholder: 'description'
     - if !@job.new_record?
       = link_to 'upload attachments', new_job_attachment_path(@job), class: 'btn btn-info btn-block', remote: true
@@ -79,7 +79,11 @@
         = render 'clients/client', c: @client
     h2 = "attachments preview" if @job.attachments.any?
     ul.attachments-list
-      = render 'attachments/show'
+      ul.attachments-list
+        - @job.attachments.each do |a|
+          = render 'attachments/attachment', a: a
+          br
+          = link_to "delete attachment", job_attachment_path(@job, a), method: "delete", class: 'btn btn-danger', remote: true
     h2 = "products preview" if @job.products.any?
     = render 'jobs/products_index'
     .row

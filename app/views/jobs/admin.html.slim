@@ -1,2 +1,18 @@
-<h1>Jobs#admin</h1>
-<p>Find me in app/views/jobs/admin.html.erb</p>
+- provide :title, 'admin'
+= render 'jobs/filter_bar'
+.space
+  br
+  #view-jobs
+    ul.thumbnails#job-gallery
+      li
+        .thumbnail#new-job 
+          = link_to image_tag("new_job.png"), new_job_path, class: 'thumbnail'
+      - @jobs.each do |job|
+        li
+          .thumbnail 
+            - job.thumbnails.shuffle.first(1).each do |t|
+              = link_to image_tag(t.thumb_url).to_s, job, class: 'thumbnail', remote: true
+            h5 = job.title
+            = link_to "edit job", edit_job_path(job.id), class: 'btn btn-block'
+            = link_to "delete job", job_path(job.id), method: "delete", class: 'btn btn-danger btn-block'
+#view-job

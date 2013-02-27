@@ -14,6 +14,7 @@ KajuInk::Application.routes.draw do
     resources :clients do
       resources :thumbnails
     end
+    get 'admin', on: :collection
   end
 
   resources :humans, path: 'humans', controller: :jobs
@@ -38,8 +39,11 @@ KajuInk::Application.routes.draw do
 
   match '/art',   to: 'pages#art', as: 'art'
   match '/graphic',   to: 'pages#graphic', as: 'graphic'
+  match '/random',   to: 'jobs#random', as: 'random'
   match '/kaju',   to: 'pages#about', as: 'about'
   match '/home',   to: 'pages#home', as: 'home'
+
+  match '/admin',   to: 'jobs#admin', as: 'admin'
 
   root to: 'pages#welcome'
 end

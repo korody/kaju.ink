@@ -4,7 +4,8 @@ var container = $("#view-job"),
     page = $("html,body"),
     products = $("#view-products"),
     client = $("#view-client"),
-    up = $("img#up");
+    up = $("img#up"),
+    random = $("a#random");
 
 $(page).animate({
   scrollTop: container.offset().top - 114 },
@@ -29,6 +30,21 @@ $(window).scroll(function () {
     // alert($(window).scrollTop() - container.offset().top);
   } else {
     up.css({
+      position: 'static'
+    })
+  }
+});
+
+$(window).scroll(function () {
+  if($(window).scrollTop() >= (container.offset().top - 114)) {
+    random.css({
+      position: 'fixed',
+      top: '114px',
+      right: '0px'      
+    });
+    // alert($(window).scrollTop() - container.offset().top);
+  } else {
+    random.css({
       position: 'static'
     })
   }

@@ -48,11 +48,17 @@ class JobsController < ApplicationController
     redirect_to art_path
   end
 
-  # def random
-  #   @random = Job.offset(rand(Job.count)).first
-    # respond_to do |format|
-    #   format.html {  }
-    #   format.js
-    # end
-  # end
+  def random
+    @job = Job.offset(rand(Job.count)).first
+    @products = @job.products
+    respond_to do |format|
+      format.html
+      format.js { render 'show' }
+    end
+  end
+
+  def admin
+    @jobs = Job.scoped.order('jobs.created_at DESC')
+  end
+
 end

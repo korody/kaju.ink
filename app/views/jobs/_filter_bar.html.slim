@@ -9,6 +9,10 @@
         - Job.graphicbar.each do |b|
           = active_link_to b.downcase, jobs_path(type: b), type: b
         li = link_to 'all', graphic_path
+      - elsif controller.action_name == 'admin'
+        - Job.types.each do |types|
+          = active_link_to types.downcase, jobs_path(type: types), type: types
+        li = link_to 'all', admin_path
       - elsif clients_path
         - Client.clientes.each do |c|
           = active_link_to c.downcase, clients_path(type: c), type: c
