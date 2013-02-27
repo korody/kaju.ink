@@ -4,6 +4,8 @@
   .row
     .span12
       #view-client
+    .span12#job-title
+      p#title = job.title if job.title?
     .span5.job-container
       p = "#{icon_tag 'user', "client"} #{link_to @client.name, '#', id: 'show-client', remote: true}".html_safe if @client
       p = "#{icon_tag 'list', "client info"} #{job.client_info}".html_safe if job.client_info?

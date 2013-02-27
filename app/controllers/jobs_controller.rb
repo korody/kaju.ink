@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
 
-  before_filter :authenticate, except: [:index, :show]
+  before_filter :authenticate, except: [:index, :show, :random]
   
   def index
     if params[:type].present?
@@ -50,6 +50,7 @@ class JobsController < ApplicationController
 
   def random
     @job = Job.offset(rand(Job.count)).first
+    @client = @job.client
     @products = @job.products
     respond_to do |format|
       format.html

@@ -1,4 +1,4 @@
- $('#view-job').hide().fadeToggle(1500).html("<%= j render 'show', job: @job %>");
+ $('#view-job').hide().fadeToggle(800).html("<%= j render 'show', job: @job %>");
 
 var container = $("#view-job"),
     page = $("html,body"),
@@ -8,15 +8,14 @@ var container = $("#view-job"),
     random = $("a#random");
 
 $(page).animate({
-  scrollTop: container.offset().top - 114 },
-2000);
+  scrollTop: container.offset().top - 114 }, 1200);
 
 
 $(function() {
   $(up).click(function() {
     $(page).animate({
       scrollTop: page.offset().top - 0 },
-    2000);
+    800);
   });
 });
 
@@ -53,14 +52,14 @@ $(window).scroll(function () {
 
 $(function() {
   $('#buy').click(function() {
-    products.fadeToggle(1500).html("<%= j render 'products_index', job: @job %>");
+    products.fadeToggle(800).html("<%= j render 'products_index', job: @job %>");
   });
 });
 
 
 $(function() {
   $('#show-client').click(function() {
-    client.hide().fadeToggle(1500).html("<%= j render 'client_index', c: @client if @client %>");
+    client.hide().fadeToggle(800).html("<%= j render 'client_index', c: @client if @client %>");
     // page.animate({
     //   scrollTop: client.offset().top - 114 },
     // 2000);
