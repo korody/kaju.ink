@@ -28,8 +28,6 @@ KajuInk::Application.routes.draw do
   resources :cocreations, path: 'cocreations', controller: :jobs
   resources :events, path: 'events', controller: :jobs
   resources :layouts, path: 'layouts', controller: :jobs
-  resources :archplans, path: 'archplans', controller: :jobs
-  resources :maps, path: 'maps', controller: :jobs
   
   resources :products do
     resources :thumbnails

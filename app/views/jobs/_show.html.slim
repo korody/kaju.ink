@@ -11,7 +11,7 @@
       p = "#{icon_tag 'check-empty', "area"} #{job.area}".html_safe if job.area?
       p = "#{icon_tag 'time', "duration"} #{job.duration}".html_safe if job.duration?
       p = "#{icon_tag 'pencil', "material"} #{job.material}".html_safe if job.material?
-      p = "#{icon_tag 'align-justify', "client"} #{job.description}".html_safe if job.description?
+      p = "#{icon_tag 'align-justify', "description"} #{job.description}".html_safe if job.description?
     .span5.job-container
       .span5#fb-like
         .fb-like#fb data-send='false' data-width='300' data-show-faces='false' data-font='tahoma'

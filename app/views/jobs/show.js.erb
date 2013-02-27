@@ -45,9 +45,9 @@ $(function() {
 $(function() {
   $('#show-client').click(function() {
     client.hide().fadeToggle(1500).html("<%= j render 'client_index', c: @client if @client %>");
-    page.animate({
-      scrollTop: client.offset().top - 145 },
-    2000);
+    // page.animate({
+    //   scrollTop: client.offset().top - 145 },
+    // 2000);
   });
 });
 
