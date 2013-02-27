@@ -38,3 +38,4 @@ gem "fog", "~> 1.3.1"
 gem 'aws-s3'
 gem "rmagick"
 gem 'jbuilder'
+gem 'rinku', '~> 1.5.0', require: 'rails_rinku'

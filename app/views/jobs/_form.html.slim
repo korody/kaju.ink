@@ -35,6 +35,12 @@
     = f.input :material, wrapper: :prepend, error: false, label: false do
       span.add-on = icon_tag 'pencil'
       = f.input_field :material, class: 'span4', placeholder: 'material'
+    = f.input :website, wrapper: :prepend, error: false, label: false do
+      span.add-on = icon_tag 'external-link'
+      = f.input_field :website, class: 'span4', placeholder: 'website'    
+    = f.input :video, wrapper: :prepend, error: false, label: false do
+      span.add-on = icon_tag 'play'
+      = f.input_field :video, class: 'span4', placeholder: 'video (youtube url)'
     = f.input :description, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 3}, placeholder: 'description'
     - if !@job.new_record?
       = link_to 'upload attachments', new_job_attachment_path(@job), class: 'btn btn-info btn-block', remote: true

@@ -129,6 +129,7 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rinku (1.5.1)
     rmagick (2.13.1)
     ruby-hmac (0.4.0)
     rubyzip (0.9.9)
@@ -178,6 +179,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.6)
   rake (>= 10.0.3)
+  rinku (~> 1.5.0)
   rmagick
   sass-rails (~> 3.2.3)
   simple_form

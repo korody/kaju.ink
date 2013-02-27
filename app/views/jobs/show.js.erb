@@ -7,7 +7,7 @@ var container = $("#view-job"),
     up = $("img#up");
 
 $(page).animate({
-  scrollTop: container.offset().top - 145 },
+  scrollTop: container.offset().top - 114 },
 2000);
 
 
@@ -21,10 +21,10 @@ $(function() {
 
 
 $(window).scroll(function () {
-  if($(window).scrollTop() >= (container.offset().top - 145)) {
+  if($(window).scrollTop() >= (container.offset().top - 114)) {
     up.css({
       position: 'fixed',
-      top: '145px'      
+      top: '114px'      
     });
     // alert($(window).scrollTop() - container.offset().top);
   } else {
@@ -46,7 +46,7 @@ $(function() {
   $('#show-client').click(function() {
     client.hide().fadeToggle(1500).html("<%= j render 'client_index', c: @client if @client %>");
     // page.animate({
-    //   scrollTop: client.offset().top - 145 },
+    //   scrollTop: client.offset().top - 114 },
     // 2000);
   });
 });

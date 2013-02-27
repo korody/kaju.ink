@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130213190945) do
+ActiveRecord::Schema.define(:version => 20130227033155) do
 
   create_table "attachments", :force => true do |t|
     t.text     "description"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20130213190945) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "client_id"
+    t.string   "video"
+    t.string   "website"
   end
 
   create_table "messages", :force => true do |t|
@@ -72,12 +74,5 @@ ActiveRecord::Schema.define(:version => 20130213190945) do
   end
 
   add_index "thumbnails", ["thumbable_id"], :name => "index_thumbnails_on_thumbable_id"
-
-  create_table "works", :force => true do |t|
-    t.string   "type"
-    t.integer  "job_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
 end

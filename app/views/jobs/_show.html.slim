@@ -11,6 +11,7 @@
       p = "#{icon_tag 'check-empty', "area"} #{job.area}".html_safe if job.area?
       p = "#{icon_tag 'time', "duration"} #{job.duration}".html_safe if job.duration?
       p = "#{icon_tag 'pencil', "material"} #{job.material}".html_safe if job.material?
+      p = "#{icon_tag 'external-link', "website"} #{auto_link job.website, :all, target: '_blank'}".html_safe if job.website?
       p = "#{icon_tag 'align-justify', "description"} #{job.description}".html_safe if job.description?
     .span5.job-container
       .span5#fb-like
