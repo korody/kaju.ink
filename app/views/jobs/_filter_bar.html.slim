@@ -13,13 +13,15 @@
         - Job.types.each do |types|
           = active_link_to types.downcase, jobs_path(type: types), type: types
         li = link_to 'all', admin_path
-      - elsif clients_path
+      - elsif params[:controller] == 'clients'
         - Client.clientes.each do |c|
           = active_link_to c.downcase, clients_path(type: c), type: c
         li = link_to 'all', clients_path, remote: true
-      - elsif controller.action_name == 'products'
-        - Product.shop.each do |p|
-          = active_link_to p.downcase, products_path(type: p), type: p
+      - elsif params[:controller] == 'products'
+        / - Product.shop.each do |p|
+          / = active_link_to p.downcase, products_path(type: p), type: p
+        li = link_to "society 6", products_path(type: 'Society'), type: 'Society', remote: true
+        li = link_to "urban arts", products_path(type: 'Urban'), type: 'Urban', remote: true
         li = link_to 'all', products_path, remote: true
       - else
         ' &nbsp;
