@@ -1,4 +1,5 @@
 .span5
+  = link_to "<-- back to admin", admin_path
   = render 'error_messages', object: @job
   = simple_nested_form_for @job, as: :job, html: { class: 'form-vertical', multipart: true } do |f|
     h2 = "#{@job.title} info".html_safe
@@ -86,7 +87,7 @@
           br
           = link_to "delete attachment", job_attachment_path(@job, a), method: "delete", class: 'btn btn-danger', remote: true
     - if @job.video?      
-      iframe width="1170" height="658" src="<%= (@job.video).html_safe %>" frameborder="0" allowfullscreen
+      iframe width="1170" height="658" src="#{@job.video}".html_safe frameborder="0" allowfullscreen
     h2 = "products preview" if @job.products.any?
     = render 'jobs/products_index'
     .row

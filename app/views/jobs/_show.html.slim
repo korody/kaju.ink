@@ -28,4 +28,4 @@
       = render 'attachments/show'
       - if job.video?
         #video
-          iframe width="1170" height="658" src="<%= (job.video).html_safe %>" frameborder="0" allowfullscreen
+          iframe width="1170" height="658" src="#{@job.video}".html_safe frameborder="0" allowfullscreen
