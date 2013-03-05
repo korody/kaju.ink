@@ -2,4 +2,5 @@ li
   .thumbnail 
     - job.thumbnails.shuffle.first(1).each do |t|
       = link_to image_tag(t.thumb_url).to_s, job, class: 'thumbnail', remote: true
+      h5.pull-right = icon_tag 'facetime-video' if job.video?
     h5 = job.title
