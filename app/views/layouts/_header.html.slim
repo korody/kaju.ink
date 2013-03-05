@@ -1,5 +1,5 @@
 .navbar.navbar-fixed-top#menubar
-  = link_to (image_tag "ribbon.png", id: 'ribbon'), root_path, class: 'brand'
+  = link_to (image_tag "ribbon.png", id: 'ribbon'), root_path, class: 'brand', title: 'back home'
   .container
     button.btn.btn-navbar data-toggle="collapse" data-target=".nav-collapse"
       span.icon-bar
@@ -14,4 +14,3 @@
         li = link_to (image_tag "cart.png") + "market", products_path, class: active?('products', 'index')
         li = link_to (image_tag "kaju.png") + "kaju?", about_path, class: active?('pages', 'about')
         li = link_to (image_tag "bubble.png") + "hello", hello_path, class: active?('contact', 'new')
-      

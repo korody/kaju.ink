@@ -41,9 +41,9 @@ KajuInk::Application.routes.draw do
   match '/graphic',   to: 'pages#graphic', as: 'graphic'
   match '/random',   to: 'jobs#random', as: 'random'
   match '/kaju',   to: 'pages#about', as: 'about'
-  match '/home',   to: 'pages#home', as: 'home'
+  match '/welcome',   to: 'pages#welcome', as: 'home'
 
   match '/admin',   to: 'jobs#admin', as: 'admin'
 
-  root to: 'pages#welcome'
+  root to: 'pages#home'
 end

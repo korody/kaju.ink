@@ -72,8 +72,10 @@ container.on('contextmenu', 'img', function(e) {
 });
 
 
-FB.XFBML.parse(document.getElementById('fb-like'));
-// var sUrl = window.location;
+FB.XFBML.parse(document.getElementById('fb').setAttribute('href', 'https://www.facebook.com/kaju.ink'));
+// FB.XFBML.parse(document.getElementById('fb'));
+
+// var sUrl = container.location;
 // document.getElementById('fb').setAttribute('href', sUrl);
 
 // $(document).ajaxComplete(function(){

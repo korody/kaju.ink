@@ -1,5 +1,6 @@
 class Job < ActiveRecord::Base
   attr_accessible :area, :client_name, :client_info, :description, :effort, :material, :spot, :title, :type, :what, :duration, :website, :video, :attachments_attributes, :thumbnails_attributes, :products_attributes, :client_attributes
+  before_save :youtube_video
 
   belongs_to :client
 
@@ -39,6 +40,12 @@ class Job < ActiveRecord::Base
 
   def self.graphicbar
     GRAPHIC
+  end
+
+  def youtube_video
+    if video
+      self.video = video.gsub("watch?v=", "embed/").gsub("http://www", "https://www")
+    end  
   end
 
   private

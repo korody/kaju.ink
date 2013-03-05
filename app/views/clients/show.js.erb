@@ -1,8 +1,9 @@
 var client = $('#<%= dom_id @client %>'),
-    pop = '.reveal-job',
+    pop = '.pop-job',
+    reveal = '.reveal-job',
     arrow = 'a#arrow-jobs';
 
 client.children(arrow).toggle(400);
-client.parent('li').css('opacity','0.8').next(pop).toggle().html("<%= j render 'show', c: @client %>");
-// client.parent('li').next(pop).effect('highlight', { color: '#FFA07A' }, 2000);
-// client.parent('li').next(pop).css('background-color', '#FFA07A');
+client.parents('li').css('opacity','0.6').next(reveal).toggle().html("<%= j render 'show', c: @client %>");
+client.parent('li').next(reveal).children(pop).effect('highlight', { color: '#FFA07A' }, 3000);
+// client.parent('li').next(reveal).children(pop).css('background-color', '#FFA07A');

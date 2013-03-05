@@ -1,5 +1,5 @@
 #random-container
-  = link_to image_tag("random.png"), random_path, id: "random", remote: true
+  = link_to image_tag("random.png"), random_path, id: "random", title: 'shuffle through jobs', remote: true
 .container
   .row
     .span12
@@ -18,12 +18,14 @@
       p = "#{icon_tag 'external-link', "website"} #{auto_link job.website, :all, target: '_blank'}".html_safe if job.website?
       p = "#{icon_tag 'align-justify', "description"} #{job.description}".html_safe if job.description?
     .span5.job-container
-      .span5#fb-like
-        .fb-like#fb data-send='false' data-width='300' data-show-faces='false' data-font='tahoma'
+      .fb-like#fb data-send='false' data-width='300' data-show-faces='false' data-font='tahoma'
     .span1.offset1
-      = image_tag 'up.png', id: 'up'
+      = image_tag 'up.png', id: 'up', title: 'go back up'
     .span12
       #show-products
     .span12#job-attachments
-      = link_to image_tag("buy.png"), '#', id: 'buy', remote: true if @products.any?
+      = link_to image_tag("buy.png"), '#', id: 'buy', title: 'show related products', remote: true if @products.any?
       = render 'attachments/show'
+      - if job.video?
+        #video
+          iframe width="1170" height="658" src="<%= (job.video).html_safe %>" frameborder="0" allowfullscreen
