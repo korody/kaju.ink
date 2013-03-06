@@ -63,7 +63,14 @@ class JobsController < ApplicationController
   end
 
   def admin
-    @jobs = Job.scoped.order('jobs.created_at DESC')
+    if params[:query].present?
+      @jobs = Job.text_search(params[:query])
+      if @jobs.empty?
+        redirect_to :back, notice: " couldn't find <strong>#{params[:query]}</strong> honey pie...please try again ; )".html_safe
+      end
+    else
+      @jobs = Job.scoped.order('jobs.created_at DESC')
+    end
   end
 
 end

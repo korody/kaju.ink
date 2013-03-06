@@ -30,3 +30,4 @@
         form.navbar-form
           = form_tag jobs_path, method: 'get', remote: true do
             = text_field_tag :query, params[:query], placeholder: 'search'
+            / button.btn-link type='submit' = icon_tag 'search'
