@@ -21,6 +21,20 @@ class Product < ActiveRecord::Base
     TYPES
   end
 
+  private
+
+    include PgSearch
+    pg_search_scope :search, against: :title,
+    using: {tsearch: {prefix: true, dictionary: "english"}},
+    ignoring: :accents
+    
+    def self.text_search(query)
+      if query.present?
+        search(query)
+      else
+        scoped
+      end
+    end
 end
 
 class Society < Product

@@ -6,12 +6,13 @@ class ProductsController < ApplicationController
   def index
     if params[:type].present?
       @products = Product.filter(params).order("RANDOM()")
+    elsif params[:query].present?
+      @products = Product.text_search(params[:query])
+      if @products.empty?
+        redirect_to :back, notice: "oh, no! <strong>#{params[:query]}</strong> seems to be out of stock...".html_safe
+      end
     else
       @products = Product.scoped.order("RANDOM()")
-    end
-    respond_to do |format|
-      format.html {  }
-      format.js
     end
   end
 
@@ -56,7 +57,7 @@ class ProductsController < ApplicationController
 
   private 
 
-  def from_job
-    @job = Job.find(params["job_id"])
-  end
+    def from_job
+      @job = Job.find(params["job_id"])
+    end
 end

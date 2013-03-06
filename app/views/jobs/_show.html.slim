@@ -25,7 +25,9 @@
       #show-products
     .span12#job-attachments
       = link_to image_tag("buy.png"), '#', id: 'buy', title: 'show related products', remote: true if @products.any?
-      = render 'attachments/show'
+      ul.attachments-list
+        - job.attachments.each do |a|
+          li = image_tag a.image_url.to_s
       - if job.video?
         #video
           iframe width="1170" height="658" src="#{@job.video}".html_safe frameborder="0" allowfullscreen

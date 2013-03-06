@@ -39,3 +39,4 @@ gem 'aws-s3'
 gem "rmagick"
 gem 'jbuilder'
 gem 'rinku', '~> 1.5.0', require: 'rails_rinku'
+gem 'pg_search'

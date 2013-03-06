@@ -39,4 +39,12 @@ module ApplicationHelper
     request.fullpath == root_path
   end
 
+  def about
+    action_name == 'about'
+  end
+
+  def hello
+    action_name == 'new'
+  end
+
 end

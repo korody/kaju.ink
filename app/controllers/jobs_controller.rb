@@ -32,6 +32,10 @@ class JobsController < ApplicationController
   def edit
     @job = Job.find(params[:id])
     @client = @job.client
+    respond_to do |format|
+      format.html { render 'new' }
+      format.js 
+    end
   end
 
   def update

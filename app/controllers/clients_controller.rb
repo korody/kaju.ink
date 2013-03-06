@@ -5,6 +5,11 @@ class ClientsController < ApplicationController
   def index
     if params[:type].present?
       @clients = Client.filter(params).order('clients.created_at DESC')
+    elsif params[:query].present?
+      @clients = Client.text_search(params[:query])
+      if @clients.empty?
+        redirect_to :back, notice: "who? we haven't seen <strong>#{params[:query]}</strong> around here...".html_safe
+      end  
     else
       @clients = Client.scoped.order('clients.created_at DESC')
     end

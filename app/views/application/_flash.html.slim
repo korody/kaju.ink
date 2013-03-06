@@ -1,0 +1,5 @@
+.container.space
+  - flash.each do |key, message| 
+    = content_tag :div, class: "alert alert-#{key}" do
+      = content_tag :button, '&times;'.html_safe, class: 'close', data: { dismiss: 'alert' }
+      = message

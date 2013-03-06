@@ -12,5 +12,7 @@ html
     #ghost
     = render 'layouts/fbsdk'
     = render 'layouts/header' if !root
+    = render 'layouts/filter_bar' if !root && !about && !hello
+    = render partial: 'flash', object: flash, remote: true
     = yield
   = javascript_include_tag "application"

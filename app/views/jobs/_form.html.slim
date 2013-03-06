@@ -81,11 +81,8 @@
     h2 = "video preview" if @job.video
     h2 = "attachments preview" if @job.attachments.any?
     ul.attachments-list
-      ul.attachments-list
-        - @job.attachments.each do |a|
-          = render 'attachments/attachment', a: a
-          br
-          = link_to "delete attachment", job_attachment_path(@job, a), method: "delete", class: 'btn btn-danger', remote: true
+      - @job.attachments.each do |a|
+        = render 'attachments/attachment', a: a
     - if @job.video?      
       iframe width="1170" height="658" src="#{@job.video}".html_safe frameborder="0" allowfullscreen
     h2 = "products preview" if @job.products.any?

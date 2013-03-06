@@ -101,6 +101,9 @@ GEM
     netrc (0.7.7)
     nokogiri (1.5.5-x86-mingw32)
     pg (0.14.1-x86-mingw32)
+    pg_search (0.5.7)
+      activerecord (>= 3)
+      activesupport (>= 3)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -177,6 +180,7 @@ DEPENDENCIES
   jquery-rails
   nested_form
   pg
+  pg_search
   rails (= 3.2.6)
   rake (>= 10.0.3)
   rinku (~> 1.5.0)

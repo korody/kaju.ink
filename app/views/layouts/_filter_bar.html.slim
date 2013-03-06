@@ -1,4 +1,4 @@
-.navbar.navbar-fixed-top#job-art
+.navbar.navbar-fixed-top#filter-bar
   .container
     ul.nav
       - if controller.action_name == 'art'
@@ -25,3 +25,9 @@
         li = link_to 'all', products_path, remote: true
       - else
         ' &nbsp;
+    ul.nav.pull-right
+      li#busca
+        form.navbar-form
+          = form_tag jobs_path, method: 'get', remote: true do
+            = text_field_tag :query, params[:query], placeholder: 'buscar'
+            / button.btn-link type='submit' = icon_tag 'search'
