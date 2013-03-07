@@ -5,4 +5,5 @@ li
       - c.thumbnails.shuffle.first(1).each do |t|
         = link_to image_tag(t.thumb_url).to_s, c, class: 'thumbnail', remote: true
       p = c.name if c.name?
-.reveal-job
+      / = link_to "edit client", edit_client_path(c.id), class: 'btn btn-block'
+      = link_to "delete client", client_path(c.id), method: 'delete', class: 'btn btn-danger btn-block'

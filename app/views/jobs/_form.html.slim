@@ -77,7 +77,7 @@
     - if @client
       h2 = "client preview" 
       ul.thumbnails#job-gallery.clients-list
-        = render 'clients/client', c: @client
+        = render 'clients/client_edit', c: @client
     h2 = "video preview" if @job.video
     h2 = "attachments preview" if @job.attachments.any?
     ul.attachments-list

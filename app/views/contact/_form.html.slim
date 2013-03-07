@@ -4,9 +4,9 @@
     = message
 = render 'error_messages', object: @message
 = simple_form_for @message, url: hello_path, html: { class: 'form-vertical' }, remote: true do |f|
-  = f.input_field :name, class: 'span3', placeholder: 'nome'
+  = f.input_field :name, class: 'span3', placeholder: 'name'
   = f.input_field :email, class: 'span3', placeholder: 'e-mail'
-  = f.input_field :subject, class: 'span3', placeholder: 'assunto'
-  = f.input :body, as: :text, error: false, label: false, input_html: { class: 'span3', rows: 6}, placeholder: 'mensagem'
-  = f.submit 'enviar email', class: 'btn-link', id: 'send-mail'
+  = f.input_field :subject, class: 'span3', placeholder: 'subject'
+  = f.input :body, as: :text, error: false, label: false, input_html: { class: 'span3', rows: 6}, placeholder: 'say hello'
+  = f.submit 'send e-mail', class: 'btn-link', id: 'send-mail'
 #loading
