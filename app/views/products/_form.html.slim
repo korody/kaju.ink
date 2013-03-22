@@ -1,6 +1,6 @@
 = render 'error_messages', object: @product
 = simple_nested_form_for [@job, @product, @thumbnail], url: job_products_path(@job.id), as: :product, html: { class: 'form-vertical' }, remote: true do |f|
-  h2 = "add a product"if @job.title?
+  h2 = "add a product"?
   = hidden_field_tag 'job_id', value: params['job_id']
   = hidden_field_tag 'job_id', @job.id
   = f.simple_fields_for :thumbnails do |a|

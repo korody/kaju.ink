@@ -14,7 +14,7 @@ class Job < ActiveRecord::Base
 
   accepts_nested_attributes_for :attachments, :thumbnails, :products, :client
 
-  TYPES = %w[Human Abstract Serial Character Wall Expo Pattern Branding Institutional Co-creation Event]
+  TYPES = %w[Human Abstract Serial Character Wall Expo Pattern Branding Institutional Cocreation Event]
   validates :type, presence: true, inclusion: { in: TYPES }
   
   ART = %w[Human Abstract Serial Character Wall Expo]
