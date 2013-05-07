@@ -99,7 +99,9 @@ GEM
       net-ssh (>= 1.99.1)
     net-ssh (2.3.0)
     netrc (0.7.7)
+    nokogiri (1.5.5)
     nokogiri (1.5.5-x86-mingw32)
+    pg (0.14.1)
     pg (0.14.1-x86-mingw32)
     pg_search (0.5.7)
       activerecord (>= 3)
@@ -133,7 +135,7 @@ GEM
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rinku (1.5.1)
-    rmagick (2.13.1)
+    rmagick (2.13.2)
     ruby-hmac (0.4.0)
     rubyzip (0.9.9)
     sass (3.2.3)
@@ -184,7 +186,7 @@ DEPENDENCIES
   rails (= 3.2.6)
   rake (>= 10.0.3)
   rinku (~> 1.5.0)
-  rmagick
+  rmagick (= 2.13.2)
   sass-rails (~> 3.2.3)
   simple_form
   slim

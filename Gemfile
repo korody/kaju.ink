@@ -36,7 +36,7 @@ gem 'carrierwave', '>= 0.5.3'
 gem 'nested_form'
 gem "fog", "~> 1.3.1"
 gem 'aws-s3'
-gem "rmagick"
+gem "rmagick", '2.13.2'
 gem 'jbuilder'
 gem 'rinku', '~> 1.5.0', require: 'rails_rinku'
 gem 'pg_search'
