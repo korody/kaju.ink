@@ -2,32 +2,35 @@
   = link_to image_tag("random.png"), random_path, id: "random", title: 'shuffle through jobs', remote: true
 .container
   .row
-    .span12
+    .lc12
       #view-client
-    .span12#job-title
-      p#title = job.title if job.title?
-    .span5.job-container
-      p = "#{icon_tag 'user', "client"} #{link_to @client.name, '#', id: 'show-client', remote: true}".html_safe if @client
-      p = "#{icon_tag 'list', "client info"} #{job.client_info}".html_safe if job.client_info?
-      p = "#{icon_tag 'globe', "spot"} #{job.spot}".html_safe if job.spot?
-      p = "#{icon_tag 'tag', "title"} #{job.title}".html_safe if job.title?
-      p = "#{icon_tag 'beaker', "what"} #{job.what}".html_safe if job.what?
-      p = "#{icon_tag 'check-empty', "area"} #{job.area}".html_safe if job.area?
-      p = "#{icon_tag 'time', "duration"} #{job.duration}".html_safe if job.duration?
-      p = "#{icon_tag 'pencil', "material"} #{job.material}".html_safe if job.material?
-      p = "#{icon_tag 'external-link', "website"} #{auto_link job.website, :all, target: '_blank'}".html_safe if job.website?
-      p = "#{icon_tag 'align-justify', "description"} #{job.description}".html_safe if job.description?
-    .span5.job-container
+    .lc12
+      #job-title
+        #title
+          p = job.title if job.title?
+    .lc5.job-container
+      p = "#{icon_tag 'user', title: 'client'} #{link_to @client.name, '#', id: 'show-client', remote: true}".html_safe if @client
+      p = "#{icon_tag 'list', title: 'client info'} #{job.client_info}".html_safe if job.client_info?
+      p = "#{icon_tag 'globe', title: 'spot'} #{job.spot}".html_safe if job.spot?
+      p = "#{icon_tag 'tag', title: 'title'} #{job.title}".html_safe if job.title?
+      p = "#{icon_tag 'beaker', title: 'what'} #{job.what}".html_safe if job.what?
+      p = "#{icon_tag 'check-empty', title: 'area'} #{job.area}".html_safe if job.area?
+      p = "#{icon_tag 'time', title: 'duration'} #{job.duration}".html_safe if job.duration?
+      p = "#{icon_tag 'pencil', title: 'material'} #{job.material}".html_safe if job.material?
+      p = "#{icon_tag 'external-link', title: 'website'} #{auto_link job.website, :all, target: '_blank'}".html_safe if job.website?
+      p = "#{icon_tag 'align-justify', title: 'description'} #{job.description}".html_safe if job.description?
+    .lc5.job-container
       .fb-like#fb data-send='false' data-width='300' data-show-faces='false' data-font='tahoma'
-    .span1.offset1
+    .lc1.lco1
       = image_tag 'up.png', id: 'up', title: 'go back up'
-    .span12
+    .lc12
       #show-products
-    .span12#job-attachments
-      = link_to image_tag("buy.png"), '#', id: 'buy', title: 'show related products', remote: true if @products.any?
-      ul.attachments-list
-        - job.attachments.each do |a|
-          li = image_tag a.image_url.to_s
+    .lc12
+      #job-attachments
+        = link_to image_tag("buy.png"), '#', id: 'buy', title: 'show related products', remote: true if @products.any?
+        ul.attachments-list
+          - job.attachments.each do |a|
+            li = image_tag a.image_url.to_s
       - if job.video?
         #video
           iframe width="1170" height="658" src="#{@job.video}".html_safe frameborder="0" allowfullscreen

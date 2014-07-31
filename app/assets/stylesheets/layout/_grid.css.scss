@@ -1,0 +1,205 @@
+.row {
+  @include make-row;
+}
+
+// -- LARGE COLUMN -- //
+
+.lc1 {
+  @include make-lg-column(1);
+}
+
+// .lc2 {
+//   @include make-lg-column(2);
+// }
+
+.lc3 {
+  @include make-lg-column(3);
+}
+
+.lc4 {
+  @include make-lg-column(4);
+}
+
+.lc5 {
+  @include make-lg-column(5);
+}
+
+// .lc6 {
+//   @include make-lg-column(6);
+// }
+
+// .lc7 {
+//   @include make-lg-column(7);
+// }
+
+// .lc8 {
+//   @include make-lg-column(8);
+// }
+
+// .lc9 {
+//   @include make-lg-column(9);
+// }
+
+// .lc10 {
+//   @include make-lg-column(10);
+// }
+
+// .lc11 {
+//   @include make-lg-column(11);
+// }
+
+.lc12 {
+  @include make-lg-column(12);
+}
+
+.lco1 {
+  @include make-lg-column-offset(1);
+}
+
+// .lco2 {
+//   @include make-lg-column-offset(2);
+// }
+
+// .lco3 {
+//   @include make-lg-column-offset(3);
+// }
+
+.lco4 {
+  @include make-lg-column-offset(4);
+}
+
+// .lco5 {
+//   @include make-lg-column-offset(5);
+// }
+
+// .lco6 {
+//   @include make-lg-column-offset(6);
+// }
+
+// .lco7 {
+//   @include make-lg-column-offset(7);
+// }
+
+// .lco8 {
+//   @include make-lg-column-offset(8);
+// }
+
+// .lco9 {
+//   @include make-lg-column-offset(9);
+// }
+
+// .lco10 {
+//   @include make-lg-column-offset(10);
+// }
+
+// .lco11 {
+//   @include make-lg-column-offset(11);
+// }
+
+// .lco12 {
+//   @include make-lg-column-offset(12);
+// }
+
+// -- MEDIUM COLUMN -- //
+
+// .mc1 {
+//   @include make-sm-column(1);
+// }
+
+.mc2 {
+  @include make-sm-column(2);
+}
+
+.mc3 {
+  @include make-sm-column(3);
+}
+
+// .mc4 {
+//   @include make-sm-column(4);
+// }
+
+// .mc5 {
+//   @include make-sm-column(5);
+// }
+
+// .mc6 {
+//   @include make-sm-column(6);
+// }
+
+// .mc7 {
+//   @include make-sm-column(7);
+// }
+
+// .mc8 {
+//   @include make-sm-column(8);
+// }
+
+// .mc9 {
+//   @include make-sm-column(9);
+// }
+
+// .mc10 {
+//   @include make-sm-column(10);
+// }
+
+// .mc11 {
+//   @include make-sm-column(11);
+// }
+
+// .mc12 {
+//   @include make-sm-column(12);
+// }
+
+// .mco1 {
+//   @include make-sm-column-offset(1);
+// }
+
+// -- SMALL COLUMN -- //
+
+// .sc1 {
+//   @include make-xs-column(1);
+// }
+
+// .sc2 {
+//   @include make-xs-column(2);
+// }
+
+// .sc3 {
+//   @include make-xs-column(3);
+// }
+
+// .sc4 {
+//   @include make-xs-column(4);
+// }
+
+// .sc5 {
+//   @include make-xs-column(5);
+// }
+
+// .sc6 {
+//   @include make-xs-column(6);
+// }
+
+// .sc7 {
+//   @include make-xs-column(7);
+// }
+
+// .sc8 {
+//   @include make-xs-column(8);
+// }
+
+// .sc9 {
+//   @include make-xs-column(9);
+// }
+
+// .sc10 {
+//   @include make-xs-column(10);
+// }
+
+// .sc11 {
+//   @include make-xs-column(11);
+// }
+
+// .sc12 {
+//   @include make-xs-column(12);
+// }

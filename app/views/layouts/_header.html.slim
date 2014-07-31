@@ -1,16 +1,18 @@
-.navbar.navbar-fixed-top#menubar
+nav.navbar.navbar-default.navbar-fixed-top#menubar role='navigation'
   = link_to (image_tag "ribbon.png", id: 'ribbon'), root_path, class: 'brand', title: 'back home'
   .container
-    button.btn.btn-navbar data-toggle="collapse" data-target=".nav-collapse"
-      span.icon-bar
-      span.icon-bar
-      span.icon-bar
-    .nav-collapse.collapse
-      ul.nav.pull-left
+    .navbar-header
+      button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#site-nav'
+        span class='sr-only' toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    .collapse.navbar-collapse#site-nav
+      ul.nav.navbar-nav
         li = link_to (image_tag "bucket.png") + "art", art_path, class: active?('pages', 'art')
         li = link_to (image_tag "sign.png") + "graphic", graphic_path, class: active?('pages', 'graphic')
         li = link_to (image_tag "client.png") + "clients", clients_path, class: active?('clients', 'index')
-      ul.nav.pull-right
+      ul.nav.navbar-nav.navbar-right
         li = link_to (image_tag "cart.png") + "market", products_path, class: active?('products', 'index')
-        li = link_to (image_tag "kaju.png") + "kaju?", about_path, class: active?('pages', 'about')
+        li = link_to (image_tag "kaju.png") + "clipping", about_path, class: active?('pages', 'about')
         li = link_to (image_tag "bubble.png") + "hello", hello_path, class: active?('contact', 'new')

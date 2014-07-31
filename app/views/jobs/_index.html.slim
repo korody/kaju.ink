@@ -1,3 +1,5 @@
-ul.thumbnails#job-gallery
-  - @jobs.each do |job|
-    = render 'jobs/job', job: job
+#job-gallery
+  .row
+    - @jobs.each do |job|
+      .mc3
+        = render 'jobs/job', job: job

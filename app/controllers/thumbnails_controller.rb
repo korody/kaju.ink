@@ -37,4 +37,8 @@ class ThumbnailsController < ApplicationController
   def what_job
     @job = Job.find(params["job_id"])
   end
+
+  def thumbnail_params
+    params.require(:thumbnail).permit(:thumb)
+  end
 end

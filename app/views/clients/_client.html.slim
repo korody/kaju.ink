@@ -1,8 +1,9 @@
-li
-  = div_for c do
-    = link_to image_tag("reveal-jobs.png"), c, id: 'arrow-jobs', remote: true
-    .thumbnail 
-      - c.thumbnails.shuffle.first(1).each do |t|
-        = link_to image_tag(t.thumb_url).to_s, c, class: 'thumbnail', remote: true
-      p = c.name if c.name?
+.mc3
+  = div_for c, class: 'client-container' do
+    = link_to c, class: 'thumbnail', remote: true do
+      - c.thumbnails.first(1).each do |t|
+        = image_tag(t.thumb_url, class: 'img-responsive').to_s
+      .caption
+        p = c.name if c.name?
+      = link_to image_tag("reveal-jobs.png"), c, id: 'arrow-jobs', remote: true
 .reveal-job

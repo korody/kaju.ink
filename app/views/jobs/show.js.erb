@@ -8,7 +8,7 @@ var container = $("#view-job"),
     random = $("a#random");
 
 $(page).animate({
-  scrollTop: container.offset().top - 114 }, 1200);
+  scrollTop: container.offset().top - 110 }, 1200);
 
 
 $(function() {
@@ -21,12 +21,11 @@ $(function() {
 
 
 $(window).scroll(function () {
-  if($(window).scrollTop() >= (container.offset().top - 114)) {
+  if($(window).scrollTop() >= (container.offset().top - 110)) {
     up.css({
       position: 'fixed',
-      top: '114px'      
+      top: '110px'      
     });
-    // alert($(window).scrollTop() - container.offset().top);
   } else {
     up.css({
       position: 'static'
@@ -35,13 +34,12 @@ $(window).scroll(function () {
 });
 
 $(window).scroll(function () {
-  if($(window).scrollTop() >= (container.offset().top - 114)) {
+  if($(window).scrollTop() >= (container.offset().top - 110)) {
     random.css({
       position: 'fixed',
-      top: '114px',
+      top: '110px',
       right: '0px'      
     });
-    // alert($(window).scrollTop() - container.offset().top);
   } else {
     random.css({
       position: 'static'
@@ -59,10 +57,7 @@ $(function() {
 
 $(function() {
   $('#show-client').click(function() {
-    client.hide().fadeToggle(800).html("<%= j render 'client_index', c: @client if @client %>");
-    // page.animate({
-    //   scrollTop: client.offset().top - 114 },
-    // 2000);
+    client.fadeToggle(800).html("<%= j render 'client_index', c: @client if @client %>");
   });
 });
 

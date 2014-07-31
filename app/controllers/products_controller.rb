@@ -57,7 +57,11 @@ class ProductsController < ApplicationController
 
   private 
 
-    def from_job
-      @job = Job.find(params["job_id"])
-    end
+  def from_job
+    @job = Job.find(params["job_id"])
+  end
+
+  def product_params
+    params.require(:product).permit(:link, :title, :type, :thumbnails_attributes, :products_attributes)
+  end
 end

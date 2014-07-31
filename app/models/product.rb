@@ -1,6 +1,4 @@
 class Product < ActiveRecord::Base
-  attr_accessible :link, :title, :type, :thumbnails_attributes, :products_attributes
-
   belongs_to :marketable, polymorphic: true
 
   has_many :thumbnails, as: :thumbable, dependent: :destroy

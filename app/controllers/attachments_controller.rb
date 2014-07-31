@@ -32,4 +32,8 @@ class AttachmentsController < ApplicationController
   def the_job
     @job = Job.find(params["job_id"])
   end
+
+  def attachment_params
+    params.require(:attachment).permit(:description, :image)
+  end
 end

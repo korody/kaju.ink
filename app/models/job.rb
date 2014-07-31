@@ -1,5 +1,4 @@
 class Job < ActiveRecord::Base
-  attr_accessible :area, :client_name, :client_info, :description, :effort, :material, :spot, :title, :type, :what, :duration, :website, :video, :attachments_attributes, :thumbnails_attributes, :products_attributes, :client_attributes
   before_save :youtube_video
 
   belongs_to :client
@@ -14,11 +13,11 @@ class Job < ActiveRecord::Base
 
   accepts_nested_attributes_for :attachments, :thumbnails, :products, :client
 
-  TYPES = %w[Human Abstract Serial Character Wall Expo Pattern Branding Institutional Cocreation Event]
+  TYPES = %w[Human Abstract Series Character Wall Expo Canvas Animal Pattern Collage Branding Institutional Event Cocreation]
   validates :type, presence: true, inclusion: { in: TYPES }
   
-  ART = %w[Human Abstract Serial Character Wall Expo]
-  GRAPHIC = %w[Pattern Branding Institutional Cocreation Event]
+  ART = %w[Human Character Animal Abstract Wall Canvas Series Expo]
+  GRAPHIC = %w[Pattern Collage Branding Institutional Event Cocreation]
 
   scope :art, where(type: ART)
   scope :graphic, where(type: GRAPHIC)
@@ -72,7 +71,6 @@ class Job < ActiveRecord::Base
         # self.client_id = some_client.id
       end
     end
-
 end
 
 class Human < Job

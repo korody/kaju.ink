@@ -1,3 +1,5 @@
-ul.thumbnails#job-gallery.products-list
-  - @products.each do |p|
-    = render 'product', p: p
+#job-gallery.products-list
+  .row
+    - @products.each do |p|
+      .mc3
+        = render 'product', p: p

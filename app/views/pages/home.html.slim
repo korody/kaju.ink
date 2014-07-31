@@ -7,15 +7,13 @@
       = link_to "art", art_path
     #blog
       = link_to "blog", 'http://kajuink.wordpress.com/', target: '_blank', title: ''
-    #kaju
-      = link_to "kaju?", about_path
-    #shop
-      = link_to "shop", products_path
+    #clipping
+      = link_to "clipping", about_path
+    #market
+      = link_to "market", products_path
     #clients
       = link_to "clients", clients_path
     #graphic
       = link_to "graphic", graphic_path
   #shadow
-.navbar.navbar-fixed-bottom#aerogami
-  p = "kaju.ink piece of cloud by #{link_to 'AEROGAMI', 'http://www.aerogami.com.br', target: '_blank', title: ''}".html_safe
-      
+= render 'layouts/footer'      

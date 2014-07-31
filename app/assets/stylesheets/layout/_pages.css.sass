@@ -1,9 +1,6 @@
-@import 'presets'
-
 body
   background: url("quitanda.jpg") no-repeat fixed center
   background-size: contain
-  font-family: "Myriad Pro", "Helvetica Neue", Helvetica, Arial, sans serif
 
   #ghost
     background-color: white
@@ -23,7 +20,10 @@ body
     top: 0
     width: 100%
     z-index: -1
-  
+
+  .aerogami a
+    color: $aerogami
+
 
   /* ---------- HOME ------------ */ 
 
@@ -35,61 +35,51 @@ body
     text-align: center
     margin-top: -100px
 
-  #hello, #art, #blog, #kaju, #shop, #graphic, #clients
+  #hello, #art, #blog, #clipping, #market, #graphic, #clients
     font-size: 30px
     position: absolute
 
     a
-      color: $link
       text-decoration: none
 
       &:hover
         color: gray
 
   #hello
-    top: 126px
-    left: 572px
+    top: 115px
+    left: 573px
 
   #blog
-    bottom: 189px
+    bottom: 179px
     right: 876px
 
+  #clipping
+    bottom: 80px
+    left: 838px
+
   #art
-    bottom: 95px
-    left: 775px
+    top: 164px
+    right: 875px
 
-  #kaju
-    top: 177px
-    right: 860px
-
-  #shop
-    bottom: 238px
-    right: 582px
+  #market
+    bottom: 230px
+    right: 570px
 
   #graphic
-    top: 138px
+    top: 125px
     right: 434px
 
   #clients
-    bottom: 236px
+    bottom: 230px
     right: 178px
-
-  #aerogami
-    color: #B0B0B0
-    text-align: center
-
-    a
-      color: $link
 
 
   /* ---------- MENU BAR ------------ */ 
 
 
   #menubar
-    background-color: $base
+    // background-color: $base
     border-bottom: 1px dashed $border
-    padding-bottom: 4px
-    padding-top: 4px
 
     img
       margin-right: 4px
@@ -98,8 +88,9 @@ body
 
     img#ribbon
       height: 45px
-      margin-left: -4px
+      margin: 14px 0  0 -4px
       width: 90px
+      float: left
 
     a
       color: black
@@ -112,29 +103,13 @@ body
       color: $link
 
 
-  /* ---------- ABOUT ------------ */ 
-
-
-  #infograph
-    position: relative
-    width: 1920px
-
-  #say-hello
-    position: absolute
-    top: 110px
-    right: 110px
-    width: 130px
-
-
   /* ---------- HELLO ------------ */
 
 
   #hello-container
-    // background: url('girl.png') no-repeat center
     height: 440px
 
     input.btn-link
-      color: $link
       font-size: 18px
       text-shadow: none
       text-decoration: none
@@ -162,15 +137,6 @@ body
       margin-left: 6px
       margin-right: 12px
       line-height: 0.9
-
-    a
-      color: $link
-
-      &:hover
-        color: black
-
-    li.active > a
-      color: black
 
   #contact
     position: relative

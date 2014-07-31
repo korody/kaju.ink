@@ -73,4 +73,9 @@ class JobsController < ApplicationController
     end
   end
 
+  private
+
+  def job_params
+    params.require(:job).permit(:area, :client_name, :client_info, :description, :effort, :material, :spot, :title, :type, :what, :duration, :website, :video, :attachments_attributes, :thumbnails_attributes, :products_attributes, :client_attributes)
+  end
 end

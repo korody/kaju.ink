@@ -1,6 +1,4 @@
 class Attachment < ActiveRecord::Base
-  attr_accessible :description, :image
-
   # before_create :default_description
   
   belongs_to :attachable, polymorphic: true

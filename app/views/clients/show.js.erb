@@ -4,6 +4,5 @@ var client = $('#<%= dom_id @client %>'),
     arrow = 'a#arrow-jobs';
 
 client.children(arrow).toggle(400);
-client.parents('li').css('opacity','0.6').next(reveal).toggle().html("<%= j render 'show', c: @client %>");
-client.parent('li').next(reveal).children(pop).effect('highlight', { color: '#FFA07A' }, 3000);
-// client.parent('li').next(reveal).children(pop).css('background-color', '#FFA07A');
+client.css('opacity','0.6').parent('.mc3').next(reveal).toggle().html("<%= j render 'client_jobs', c: @client %>");
+client.parent('.mc3').next(reveal).children(pop).effect('highlight', { color: '#FFA07A' }, 3000);

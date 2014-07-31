@@ -4,7 +4,6 @@ KajuInk::Application.routes.draw do
   resources :people, controller: :clients
   resources :companies, controller: :clients 
   
-
   resources :jobs do
     resources :attachments
     resources :thumbnails
@@ -33,16 +32,16 @@ KajuInk::Application.routes.draw do
     resources :thumbnails
   end
 
-  match '/hello', to: 'contact#new',     as: 'hello',  via: :get
-  match '/hello', to: 'contact#create',  as: 'hello',  via: :post
+  get '/hello', to: 'contact#new'
+  post '/hello', to: 'contact#create'
 
-  match '/art',   to: 'pages#art', as: 'art'
-  match '/graphic',   to: 'pages#graphic', as: 'graphic'
-  match '/random',   to: 'jobs#random', as: 'random'
-  match '/kaju',   to: 'pages#about', as: 'about'
-  match '/welcome',   to: 'pages#welcome', as: 'home'
+  get '/art',   to: 'pages#art'
+  get '/graphic',   to: 'pages#graphic'
+  get '/random',   to: 'jobs#random'
+  get '/kaju',   to: 'pages#about', as: 'about'
+  get '/welcome',   to: 'pages#welcome'
 
-  match '/admin',   to: 'jobs#admin', as: 'admin'
+  get '/admin',   to: 'jobs#admin'
 
   root to: 'pages#home'
 end

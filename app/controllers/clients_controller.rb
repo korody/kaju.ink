@@ -51,4 +51,9 @@ class ClientsController < ApplicationController
     redirect_to :back
   end
 
+  private
+
+  def client_params
+    params.require(:client).permit(:name, :type, :job_id, :thumbnails_attributes)
+  end
 end

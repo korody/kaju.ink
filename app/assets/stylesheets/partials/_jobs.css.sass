@@ -1,46 +1,44 @@
-@import 'presets'
-
-  
 /* ---------- JOB BAR ------------ */ 
 
 
 #filter-bar
   background-color: white
   border-bottom: 1px dashed $border
-  top: 74px
+  min-height: 0
+  top: 76px
 
-  #busca
+  a
+    padding: 6px 15px
 
-    input#query
-      background-color: transparent
-      border: 0
-      box-shadow: none
-      font-size: 15px
-      text-align: right
+    &:hover
+      color: $link
 
-    // i
-    //   color: #888
-    //   font-size: 18px
-    //   margin-top: 4px 
+  form, .navbar-form
+    margin-bottom: 0
+    margin-top: 0
+
+  input#query
+    background-color: transparent
+    border: 0
+    box-shadow: none
+    font-size: 15px
+    text-align: right
+
 
 /* ---------- JOBS GALLERY ------------ */ 
 
 
-ul#job-gallery
+#job-gallery
   margin-bottom: 20px
   margin-top: 20px
 
-  li
+  p
+    color: gray
+    margin: 0
 
-    p
-      margin: 4px
-
-    img
-      height: 190px
-      width: 190px
-
-  .thumbnail
-    background-color: white
+  // img
+  //   height: 252px
+  //   width: 252px
 
 #attachments-uploads
   display: none
@@ -59,19 +57,20 @@ ul#job-gallery
   padding-bottom: 30px
   padding-top: 30px
 
-  p > a
-    color: $link
-
 #job-title
   position: relative
   z-index: -1
 
-  p#title
-    color: #F0F0F0
-    font-size: 120px
+  #title
     left: 0
     position: absolute
-    top: 50px
+    top: 20px
+    width: 100%
+
+  p
+    color: #F0F0F0
+    font-size: 100px
+    text-align: center
 
 img#up
   cursor: pointer

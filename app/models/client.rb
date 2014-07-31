@@ -1,6 +1,4 @@
 class Client < ActiveRecord::Base
-  attr_accessible :name, :type, :job_id, :thumbnails_attributes
-
   has_many :jobs
 
   has_many :thumbnails, as: :thumbable, dependent: :destroy

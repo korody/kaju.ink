@@ -1,42 +1,37 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
+ruby '2.0.0'
 
-gem 'rails', '3.2.6'
+gem 'rails', '4.0.2'
+gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'pg'
+gem 'pg_search'
 
-gem 'slim', '1.3.8'
+gem 'slim'
+gem 'sass-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+
 gem 'simple_form'
 gem 'jquery-rails'
-gem 'pg'
-gem 'rake', '>= 10.0.3'
+gem 'jquery-ui-rails'
+gem 'uglifier', '>= 1.0.3'
 
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'jquery-fileupload-rails'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass'
-  gem 'font-awesome-rails'
-end
-
-group :production do
-  gem 'heroku', '>= 2.26.3'
-end
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 
 group :development do
   gem 'faker'
 end
 
-gem 'carrierwave', '>= 0.5.3'
-gem 'nested_form'
 gem "fog", "~> 1.3.1"
-gem 'aws-s3'
 gem "rmagick", '2.13.2'
+gem 'carrierwave'
+gem 'aws-s3'
+gem 'jquery-fileupload-rails'
+
+# gem 'rmagick', '2.13.2', require: 'RMagick'
+# gem 'carrierwave'
+# gem 'fog', git: 'https://github.com/fog/fog.git'
+
+gem 'nested_form'
 gem 'jbuilder'
 gem 'rinku', '~> 1.5.0', require: 'rails_rinku'
-gem 'pg_search'

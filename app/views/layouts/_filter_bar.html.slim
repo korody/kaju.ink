@@ -1,33 +1,35 @@
-.navbar.navbar-fixed-top#filter-bar
+nav.navbar.navbar-default.navbar-fixed-top#filter-bar role='navigation'
   .container
-    ul.nav
-      - if controller.action_name == 'art'
-        - Job.artbar.each do |a|
-          = active_link_to a.downcase, jobs_path(type: a), type: a
-        li = link_to 'all', art_path
-      - elsif controller.action_name == 'graphic'
-        - Job.graphicbar.each do |b|
-          = active_link_to b.downcase, jobs_path(type: b), type: b
-        li = link_to 'all', graphic_path
-      - elsif controller.action_name == 'admin'
-        - Job.types.each do |types|
-          = active_link_to types.downcase, jobs_path(type: types), type: types
-        li = link_to 'all', admin_path
-      - elsif params[:controller] == 'clients'
-        - Client.clientes.each do |c|
-          = active_link_to c.downcase, clients_path(type: c), type: c
-        li = link_to 'all', clients_path, remote: true
-      - elsif params[:controller] == 'products'
-        / - Product.shop.each do |p|
-          / = active_link_to p.downcase, products_path(type: p), type: p
-        li = link_to "society 6", products_path(type: 'Society'), type: 'Society', remote: true
-        li = link_to "urban arts", products_path(type: 'Urban'), type: 'Urban', remote: true
-        li = link_to 'all', products_path, remote: true
-      - else
-        ' &nbsp;
-    ul.nav.pull-right
-      li#busca
-        form.navbar-form
-          = form_tag jobs_path, method: 'get', remote: true do
-            = text_field_tag :query, params[:query], placeholder: 'search'
-            / button.btn-link type='submit' = icon_tag 'search'
+    .navbar-header
+      button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#subnav'
+        span class='sr-only' toggle navigation
+        span.icon-bar
+        span.icon-bar
+    .collapse.navbar-collapse#subnav
+      ul.nav.navbar-nav
+        - if controller.action_name == 'art'
+          - Job.artbar.each do |a|
+            = active_link_to a.downcase, jobs_path(type: a), type: a
+          li = link_to 'all', art_path
+        - elsif controller.action_name == 'graphic'
+          - Job.graphicbar.each do |b|
+            = active_link_to b.downcase, jobs_path(type: b), type: b
+          li = link_to 'all', graphic_path
+        - elsif controller.action_name == 'admin'
+          - Job.types.each do |types|
+            = active_link_to types.downcase, jobs_path(type: types), type: types
+          li = link_to 'all', admin_path
+        - elsif params[:controller] == 'clients'
+          - Client.clientes.each do |c|
+            = active_link_to c.downcase, clients_path(type: c), type: c
+          li = link_to 'all', clients_path, remote: true
+        - elsif params[:controller] == 'products'
+          li = link_to "society 6", products_path(type: 'Society'), type: 'Society', remote: true
+          li = link_to "urban arts", products_path(type: 'Urban'), type: 'Urban', remote: true
+          li = link_to 'all', products_path, remote: true
+        - else
+          ' &nbsp;
+      form.navbar-form.navbar-right role='search'
+        = form_tag jobs_path, method: 'get', remote: true do
+          = text_field_tag :query, params[:query], placeholder: 'search', class: 'form-control'
+          / button.btn-link type='submit' = icon_tag 'search'
