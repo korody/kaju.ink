@@ -27,7 +27,7 @@ module ApplicationHelper
 
   def aerogami_tag
     content_tag :p, class: 'aerogami text-muted text-center' do
-      "kaju.ink piece of cloud by #{link_to "AEROGAMI", "http://www.aerogami.com.br", target: '_blank', title: ''}".html_safe
+      "kaju.ink air craft by #{link_to "AEROGAMI", "http://www.aerogami.com.br", target: '_blank', title: ''}".html_safe
     end
   end
 
