@@ -13,10 +13,10 @@ class Job < ActiveRecord::Base
 
   accepts_nested_attributes_for :attachments, :thumbnails, :products, :client
 
-  TYPES = %w[Human Abstract Serial Character Wall Expo Canvas Animal Pattern Collage Branding Institutional Event Cocreation]
+  TYPES = %w[Human Abstract Series Character Wall Expo Canvas Animal Pattern Collage Branding Institutional Event Cocreation]
   validates :type, presence: true, inclusion: { in: TYPES }
   
-  ART = %w[Human Character Animal Abstract Wall Canvas Serial Expo]
+  ART = %w[Human Character Animal Abstract Wall Canvas Series Expo]
   GRAPHIC = %w[Pattern Collage Branding Institutional Event Cocreation]
 
   scope :art, -> { where(type: ART) }
@@ -85,7 +85,7 @@ end
 class Abstract < Job
 end
 
-class Serial < Job
+class Series < Job
 end
 
 class Character < Job
