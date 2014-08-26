@@ -29,16 +29,11 @@ gem 'aws-s3'
 gem 'jquery-fileupload-rails'
 gem 'best_in_place', github: 'bernat/best_in_place'
 
-# gem 'rmagick', '2.13.2', require: 'RMagick'
-# gem 'carrierwave'
-# gem 'fog', git: 'https://github.com/fog/fog.git'
-
 gem 'nested_form'
 gem 'jbuilder'
 gem 'rinku', '~> 1.5.0', require: 'rails_rinku'
 
-
 group :production do
   gem 'rails_12factor'
-  gem 'unicorn'
+  # gem 'unicorn'
 end
