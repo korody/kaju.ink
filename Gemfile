@@ -12,7 +12,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'simple_form'
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '>= 5.0.0'
 gem 'uglifier', '>= 1.0.3'
 
 gem 'bootstrap-sass'
