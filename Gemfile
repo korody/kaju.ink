@@ -35,5 +35,5 @@ gem 'rinku', '~> 1.5.0', require: 'rails_rinku'
 
 group :production do
   gem 'rails_12factor'
-  # gem 'unicorn'
+  gem 'unicorn'
 end
