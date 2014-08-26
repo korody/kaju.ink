@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
+//= require jquery-ui/effect-highlight
+//= require jquery-ui/autocomplete
 //= require bootstrap
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
