@@ -1,4 +1,4 @@
-li 
-  = link_to image_tag(t.thumb_url.to_s), job_thumbnail_path(@job,t)
-  br
-  = link_to "delete thumbnail", job_thumbnail_path(@job, t.id), method: "delete", class: 'btn btn-warning', remote: true
+.mc6 
+  = div_for thumbnail
+    = image_tag thumbnail.thumb_url.to_s, class: 'img-responsive'
+    = link_to "delete thumbnail", thumbnail_path(thumbnail), method: "delete", class: 'btn btn-sm btn-block btn-danger', remote: true

@@ -1,0 +1,31 @@
+- provide :title, 'admin'
+#view-jobs
+  #job-gallery
+    .row
+      .mc2
+        #new-job 
+          = link_to image_tag("new_job.jpg"), new_job_path, class: 'thumbnail'
+      - @jobs.each do |job|
+        .mc2
+          .thumbnail 
+            - job.thumbnails.first(1).each do |t|
+              = link_to image_tag(t.thumb_url).to_s, job, class: 'thumbnail', remote: true
+            p.pull-right = icon_tag 'video-camera' if job.video?
+            p = job.title
+            = link_to "edit", edit_job_path(job.id), class: 'btn btn-default'
+            = link_to "delete", job_path(job.id), method: "delete", class: 'btn btn-danger pull-right'
+    .row
+      .mc2
+        #new-clipping 
+          = link_to image_tag("new_clipping.jpg"), new_clipping_path, class: 'thumbnail'
+      - @clippings.each do |clipping|
+        .mc2
+          .thumbnail 
+            - clipping.thumbnails.first(1).each do |c|
+              = link_to image_tag(c.thumb_url).to_s, clipping, class: 'thumbnail', remote: true
+            p.pull-right = icon_tag 'video-camera' if clipping.video?
+            p = clipping.title
+            = link_to "edit", edit_clipping_path(clipping.id), class: 'btn btn-default'
+            = link_to "delete", clipping_path(clipping.id), method: "delete", class: 'btn btn-danger pull-right'
+#view-job
+#view-clipping

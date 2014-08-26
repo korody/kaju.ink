@@ -23,10 +23,11 @@ group :development do
 end
 
 gem "fog", "~> 1.3.1"
-gem "rmagick", '2.13.2'
+gem 'rmagick', '2.13.2', require: 'RMagick'
 gem 'carrierwave'
 gem 'aws-s3'
 gem 'jquery-fileupload-rails'
+gem 'best_in_place', github: 'bernat/best_in_place'
 
 # gem 'rmagick', '2.13.2', require: 'RMagick'
 # gem 'carrierwave'
@@ -35,3 +36,5 @@ gem 'jquery-fileupload-rails'
 gem 'nested_form'
 gem 'jbuilder'
 gem 'rinku', '~> 1.5.0', require: 'rails_rinku'
+
+gem 'rails_12factor', group: :production

@@ -1,0 +1,8 @@
+= form_for Thumbnail.new do |thumbnail|
+  = thumbnail.hidden_field :thumbable_type, value: thumbable.class.name
+  .form-group
+    = thumbnail.label :thumbnails, class: 'sr-only'
+    .file-input-wrapper
+      .custom-file-field
+        span #{content_tag :span, "select thumbnails", class: 'file-input-link'} or drag them here
+      = thumbnail.file_field :thumb, multiple: true, name: "thumbnail[thumb]", class: 'browser-file-field'

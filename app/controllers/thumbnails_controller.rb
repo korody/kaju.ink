@@ -1,44 +1,27 @@
 class ThumbnailsController < ApplicationController
+  respond_to :html, :js
     
-  before_filter :what_job
   before_filter :authenticate, except: [:index, :show]
-  
-  def index
-    @thumbnails = Thumbnail.where("thumbable_id = ?", what_job)
-  end
-
-
-  def show
-    @thumbnail = Thumbnail.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json
-    end
-  end
-
-
-  def new
-    @thumbnail = Thumbnail.new
-  end
-
 
   def create
-    @thumbnail = @job.thumbnails.create(params[:thumbnail])
+    @thumbnail = Thumbnail.create(thumbnail_params)
   end
-
+    
+  def update
+    @thumbnail = Thumbnail.find(params[:id])
+    @thumbnail.update_attributes(thumbnail_params)
+    respond_with(@thumbnail)
+  end
 
   def destroy
-    Thumbnail.find(params[:id]).destroy
+    @thumbnail = Thumbnail.find(params[:id])
+    @thumbnail.destroy
+    respond_with(@thumbnail)
   end
 
-  private 
-
-  def what_job
-    @job = Job.find(params["job_id"])
-  end
+  private
 
   def thumbnail_params
-    params.require(:thumbnail).permit(:thumb)
+    params.require(:thumbnail).permit(:thumb, :thumbable_type)
   end
 end

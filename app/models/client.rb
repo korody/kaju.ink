@@ -6,7 +6,7 @@ class Client < ActiveRecord::Base
   accepts_nested_attributes_for :thumbnails
   
   TYPES = %w[Person Company]
-  validates :type, presence: true, inclusion: { in: TYPES }, on: :update
+  # validates :type, presence: true, inclusion: { in: TYPES }, on: :update
 
   scope :person, where(type: 'Person')
   scope :company, where(type: 'Company')
@@ -21,7 +21,8 @@ class Client < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search, against: :name,
-  using: {tsearch: {prefix: true, dictionary: "english"}},
+  using: {tsearch: {prefix: true, any_word: true, dictionary: "english"},
+          trigram: {threshold: 0.1}},
   ignoring: :accents
   
   def self.text_search(query)
@@ -32,6 +33,10 @@ class Client < ActiveRecord::Base
     end
   end
 
+  def self.tokens(term)
+    clients = where("name ilike ?", "%#{term}%").map(&:name)
+    clients.empty? ? [{id: "<<<#{term}>>>", name: "NENHUM CLIENTE \"#{term}\" ENCONTRADO!"}] : clients
+  end
 end
 
 

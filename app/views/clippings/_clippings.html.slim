@@ -1,0 +1,5 @@
+#job-gallery.clippings-list
+  .row
+    - @clippings.each do |c|
+      .mc3
+        = render 'clipping', clipping: c

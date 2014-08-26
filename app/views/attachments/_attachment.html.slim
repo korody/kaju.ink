@@ -1,4 +1,4 @@
-li 
-  = image_tag a.image_url.to_s
-  br
-  = link_to "delete attachment", job_attachment_path(@job, a), method: "delete", class: 'btn btn-danger', remote: true
+.mc6
+  = div_for attachment 
+    = image_tag attachment.image_url.to_s, class: 'img-responsive'
+    = link_to "delete attachment", attachment_path(attachment), method: "delete", class: 'btn btn-danger btn-sm btn-block', remote: true

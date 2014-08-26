@@ -1,18 +1,18 @@
-var attachments = $(".attachments-uploads");
+// var attachments = $(".attachments-uploads");
 
-attachments.hide().fadeToggle(1500).html("<%= j render 'form', job_id: @job.id %>"); 
+// attachments.hide().fadeToggle(1500).html("<%= j render 'form', job_id: @job.id %>"); 
 
-$('html,body').animate({
-  scrollTop: attachments.offset().top - 145 },
-800);
+// $('html,body').animate({
+//   scrollTop: attachments.offset().top - 145 },
+// 800);
 
-$('#new_attachment').fileupload({
-  /* ... */
-  progressall: function (e, data) {
-    var progress = parseInt(data.loaded / data.total * 100, 10);
-    $('#progress .bar').css(
-      'width',
-      progress + '%'
-    );
-  }
-});
+// $('#new_attachment').fileupload({
+//   /* ... */
+//   progressall: function (e, data) {
+//     var progress = parseInt(data.loaded / data.total * 100, 10);
+//     $('#progress .bar').css(
+//       'width',
+//       progress + '%'
+//     );
+//   }
+// });

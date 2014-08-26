@@ -1,2 +1,2 @@
-$(".thumbnails-list, .thumbnails-thumbs").hide().fadeToggle(1500).html("<%= j render 'show' %>"); 
-$('#job-gallery').hide().fadeToggle(1500).html("<%= j render 'jobs/job', job: @job %>"); 
+$("#<%= dom_id @thumbnail %>").parent('.mc6').remove();
+$('.progress-wrapper').remove();

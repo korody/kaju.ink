@@ -1,6 +1,0 @@
-ul
-  - @job.client.thumbnails.each do |t|
-    li 
-      = link_to image_tag(t.thumb_url.to_s), job_thumbnail_path(@job,t)
-      br
-      = link_to "delete thumbnail", job_thumbnail_path(@job, t.id), method: "delete", class: 'btn btn-danger', remote: true

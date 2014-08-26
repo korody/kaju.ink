@@ -1,23 +1,27 @@
 = render 'error_messages', object: @product
-= simple_nested_form_for [@job, @product, @thumbnail], url: job_products_path(@job.id), as: :product, html: { class: 'form-vertical' }, remote: true do |f|
+= simple_nested_form_for [@job, @product], url: job_products_path(@job.id), as: :product, html: { class: 'form-vertical' }, remote: true do |f|
   h2 = "add a product"
-  = hidden_field_tag 'job_id', value: params['job_id']
-  = hidden_field_tag 'job_id', @job.id
-  = f.simple_fields_for :thumbnails do |a|
-    = a.file_field :thumb, name: "product[thumbnails_attributes][0][thumb]", class: 'btn btn-primary'
-  br
-  br
-  = f.input :type, wrapper: :prepend, error: false, label: false do
-    span.add-on = icon_tag 'folder-open'
-    = f.select :type, %w[Society Urban]  
-  = f.input :title, wrapper: :prepend, error: false, label: false do
-    span.add-on = icon_tag 'tag'
-    = f.input_field :title, class: 'span4', placeholder: 'title'
-  = f.input :link, wrapper: :prepend, error: false, label: false do
-    span.add-on = icon_tag 'globe'
-    = f.input_field :link, class: 'span4', placeholder: 'shop link'
-  / # = link_to 'upload thumbnail', new_product_thumbnail_path(@job), class: 'btn btn-warning', remote: true
-  = f.submit 'update product', class: 'btn btn-success span5'
+  .form-group
+    = f.link_to_add "add thumbnail field", :thumbnails, class: 'btn btn-sm btn-block btn-warning'
+    = f.simple_fields_for :thumbnails do |a|
+      = a.file_field :thumb, name: "product[thumbnails_attributes][0][thumb]", class: 'btn btn-sm btn-block btn-default'
+  .form-group
+    .input-group
+      .input-group-addon
+        = icon_tag 'folder-open'
+      = f.input :type, wrapper: :prepend, error: false, label: false do
+        = f.select :type, %w[Society Urban], {}, class: 'form-control input-sm'  
+  .form-group
+    .input-group
+      .input-group-addon
+        = icon_tag 'tag'
+      = f.input :title, wrapper: :prepend, error: false, label: false do
+        = f.input_field :title, class: 'form-control', placeholder: 'title'
+  .form-group
+    .input-group
+      .input-group-addon
+        = icon_tag 'shopping-cart'
+      = f.input :link, wrapper: :prepend, error: false, label: false do
+        = f.input_field :link, class: 'form-control', placeholder: 'shop link'
+  = f.submit 'update product', class: 'btn btn-success btn-block'
 ul.products-thumbs
-#attachments-uploads
-#view-job

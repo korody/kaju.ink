@@ -14,5 +14,5 @@ nav.navbar.navbar-default.navbar-fixed-top#menubar role='navigation'
         li = link_to (image_tag "client.png") + "clients", clients_path, class: active?('clients', 'index')
       ul.nav.navbar-nav.navbar-right
         li = link_to (image_tag "cart.png") + "market", products_path, class: active?('products', 'index')
-        li = link_to (image_tag "kaju.png") + "clipping", about_path, class: active?('pages', 'about')
+        li = link_to (image_tag "kaju.png") + "clipping", clippings_path, class: active?('pages', 'clipping')
         li = link_to (image_tag "bubble.png") + "hello", hello_path, class: active?('contact', 'new')

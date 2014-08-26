@@ -1,0 +1,52 @@
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'folder-open'
+    = job.select :type, Job.types, {}, class: 'form-control input-sm'
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'tag'
+    = job.text_field :title, class: 'form-control input-sm', placeholder: 'title'
+.form-group
+  .input-group
+    .input-group-addon 
+      = icon_tag 'institution'
+    = job.text_field :client_info, class: 'form-control input-sm', placeholder: 'client info'
+.form-group
+  .input-group
+    .input-group-addon  
+      = icon_tag 'globe'
+    = job.text_field :spot, class: 'form-control input-sm', placeholder: 'spot'
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'flask'
+    = job.text_field :what, class: 'form-control input-sm', placeholder: 'what'
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'square-o'
+    = job.text_field :area, class: 'form-control input-sm', placeholder: 'area'
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'clock-o'
+    = job.text_field :duration, class: 'form-control input-sm', placeholder: 'duration'
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'pencil'
+    = job.text_field :material, class: 'form-control input-sm', placeholder: 'material'
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'external-link'
+    = job.text_field :website, class: 'form-control input-sm', placeholder: 'website'    
+.form-group
+  .input-group
+    .input-group-addon  
+      = icon_tag 'youtube'
+    = job.text_field :video, class: 'form-control input-sm', placeholder: 'youtube video'
+.form-group
+  = job.text_area :description, rows: 3, class: 'form-control input-sm', placeholder: "description"

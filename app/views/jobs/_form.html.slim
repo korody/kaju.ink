@@ -1,92 +1,18 @@
-.span5
-  = link_to "<-- back to admin", admin_path
-  = render 'error_messages', object: @job
-  = simple_nested_form_for @job, as: :job, html: { class: 'form-vertical', multipart: true } do |f|
-    h2 = "#{@job.title} info".html_safe
-    ul.thumbnails-list
-      = render 'thumbnails/show' if !@job.new_record?
-    = f.simple_fields_for :thumbnails do |a|
-      = a.file_field :thumb, class: 'btn btn-warning span4', name: "job[thumbnails_attributes][0][thumb]"
-    = f.link_to_add "add thumbnail field", :thumbnails, class: 'btn btn-warning' if !@job.thumbnails.present?
-      / = a.link_to_remove "remove thumbnail field", class: 'btn btn-danger'
-    / = link_to 'upload thumbnail', new_job_thumbnail_path(@job), class: 'btn btn-warning btn-block', remote: true if !@job.new_record?
-    br
-    br
-    = f.input :type, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'folder-open'
-      = f.select :type, Job.types 
-    = f.input :title, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'tag'
-      = f.input_field :title, class: 'span4', placeholder: 'title'
-    = f.input :client_info, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'list'
-      = f.input_field :client_info, class: 'span4', placeholder: 'client info'
-    = f.input :spot, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'globe'
-      = f.input_field :spot, class: 'span4', placeholder: 'spot'
-    = f.input :what, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'beaker'
-      = f.input_field :what, class: 'span4', placeholder: 'what'
-    = f.input :area, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'check-empty'
-      = f.input_field :area, class: 'span4', placeholder: 'area'
-    = f.input :duration, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'time'
-      = f.input_field :duration, class: 'span4', placeholder: 'duration'
-    = f.input :material, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'pencil'
-      = f.input_field :material, class: 'span4', placeholder: 'material'
-    = f.input :website, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'external-link'
-      = f.input_field :website, class: 'span4', placeholder: 'website'    
-    = f.input :video, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'play'
-      = f.input_field :video, class: 'span4', placeholder: 'video'
-    = f.input :description, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 3}, placeholder: 'description'
-    - if !@job.new_record?
-      = link_to 'upload attachments', new_job_attachment_path(@job), class: 'btn btn-info btn-block', remote: true
-      = link_to 'upload product', new_job_product_path(@job), class: 'btn btn-primary btn-block', remote: true
-      = link_to 'upload multiple thumbnails', new_job_thumbnail_path(@job), class: 'btn btn-warning btn-block', remote: true
-    br
-    h2 = "#{@job.title} client info".html_safe
-    = render 'jobs/client_thumbnails' if !@job.new_record? && @client
-    = f.simple_fields_for :client do |c|
-      = c.file_field :thumb, name: "job[client_attributes][thumbnails_attributes][0][thumb]", class: 'btn btn-danger span4'
-      br
-      br
-      = c.input :type, wrapper: :prepend, error: false, label: false do
-        span.add-on = icon_tag 'folder-open'
-        = c.select :type, %w[Person Company]  
-    = f.input :client_name, wrapper: :prepend, error: false, label: false do
-      span.add-on = icon_tag 'user'
-      = f.input_field :client_name, class: 'span4', placeholder: 'client', value: "#{@job.client.name if @job.client}"
-    / = f.link_to_add "add thumbnail field", :thumbnails, class: 'btn btn-danger btn-block' if !@client.thumbnails.present?
-    / = link_to 'upload client', edit_job_client_path(@job,@client), class: 'btn btn-danger btn-block', remote: true if !@job.new_record?
-    br
-    br
-    = f.submit 'update job', class: 'btn btn-large btn-success span5'
-.span6.offset1s
-  .attachments-uploads
-.span12
-  br
-  br
-  - if !@job.new_record?
-    h2 = "polaroid preview"
-    ul.thumbnails#job-gallery.polaroid-preview
-      = render 'jobs/job', job: @job
-    - if @client
-      h2 = "client preview" 
-      ul.thumbnails#job-gallery.clients-list
-        = render 'clients/client_edit', c: @client
-    h2 = "video preview" if @job.video
-    h2 = "attachments preview" if @job.attachments.any?
-    ul.attachments-list
-      - @job.attachments.each do |a|
-        = render 'attachments/attachment', a: a
-    - if @job.video?      
-      iframe width="1170" height="658" src="#{@job.video}".html_safe frameborder="0" allowfullscreen
-    h2 = "products preview" if @job.products.any?
-    = render 'jobs/products_index'
-    .row
-      .span5
-        = link_to "delete job", job_path(@job.id), method: "delete", class: 'btn btn-large btn-danger btn-block', confirm: "sure?"
+= link_to_back "back to admin", admin_path
+h2 = "#{@job.title} job info".html_safe
+= render 'error_messages', object: @job
+.progress-container
+= render 'layouts/template' 
+= render 'thumbnails/form', thumbable: @job
+.thumbnails-list
+  = render 'thumbnails/thumbnails', object: @job
+= render 'attachments/form', attachable: @job
+.attachments-list
+  = render 'attachments/attachments', object: @job
+= form_for @job, as: :job, data: { thumbable: 'Job', attachable: 'Job' } do |job|
+  = job.hidden_field :thumbnails_ids, class: 'thumbable_thumbnail_ids'
+  = job.hidden_field :attachments_ids, class: 'attachable_attachment_ids'
+  = render 'fields', job: job
+  = render 'job_client_form', f: job, client: @client
+  .form-group
+    = job.submit class: 'btn btn-block btn-success'

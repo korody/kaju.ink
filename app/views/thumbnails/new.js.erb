@@ -1,7 +1,0 @@
-var attachments = $(".attachments-uploads");
-
-attachments.hide().fadeToggle(1500).html("<%= j render 'form', job_id: @job.id %>"); 
-
-$('html,body').animate({
-  scrollTop: attachments.offset().top - 145 },
-800);

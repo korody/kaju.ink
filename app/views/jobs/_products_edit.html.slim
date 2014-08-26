@@ -1,0 +1,10 @@
+#job-gallery
+  .row
+    - @job.products.each do |product|
+      .mc6
+        = div_for product, class: 'thumbnail' do
+          - product.thumbnails.first(1).each do |t|
+            = image_tag t.thumb_url.to_s
+          .caption
+            = best_in_place product, :title, param: 'product'
+            = link_to "delete product", product_path(product.id), method: 'delete', class: 'btn btn-danger btn-block'

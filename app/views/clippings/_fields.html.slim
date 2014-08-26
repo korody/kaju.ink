@@ -1,0 +1,37 @@
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'folder-open'
+    = clipping.select :type, Clipping.source, {}, class: 'form-control input-sm'
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'tag'
+    = clipping.text_field :title, class: 'form-control input-sm', placeholder: 'title'
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'external-link'
+    = clipping.text_field :link, class: 'form-control input-sm', placeholder: 'direct link'
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'youtube'
+    = clipping.text_field :video, class: 'form-control input-sm', placeholder: 'youtube link'
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'cloud'
+    = clipping.text_field :website, class: 'form-control input-sm', placeholder: 'website'
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'globe'
+    = clipping.text_field :country, class: 'form-control input-sm', placeholder: 'country'
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'calendar'
+    = clipping.text_field :date, class: 'form-control input-sm', placeholder: 'date'
+.form-group
+  = clipping.text_area :description, rows: 3, class: 'form-control input-sm', placeholder: "description"

@@ -1,0 +1,24 @@
+- if client
+  h2 = "#{@job.title} client info".html_safe
+  .thumbnails-list
+    = render 'thumbnails/thumbnails', object: @client
+  = f.simple_fields_for :client do |c|
+    .form-group
+      = c.file_field :thumb, name: "job[client_attributes][thumbnails_attributes][0][thumb]", class: 'form-control input-sm'
+    .form-group
+      .input-group
+        .input-group-addon
+          = icon_tag 'user'
+        = c.text_field :name, class: 'form-control input-sm', placeholder: 'name'
+    .form-group
+      .input-group
+        .input-group-addon
+          = icon_tag 'folder-open'
+        = c.input :type, wrapper: :prepend, error: false, label: false do
+          = c.select :type, %w[Person Company], {}, class: 'form-control input-sm'
+h2 = "assign new client".html_safe
+.form-group
+  .input-group
+    .input-group-addon
+      = icon_tag 'user'
+    = f.text_field :client_name, class: 'form-control input-sm', placeholder: 'client name', data: {autocomplete_source: autocomplete_clients_path}

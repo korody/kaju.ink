@@ -1,39 +1,27 @@
 class AttachmentsController < ApplicationController
+  respond_to :html, :js
     
-  before_filter :the_job
   before_filter :authenticate, except: [:index, :show]
-  
-  def index
-    @attachments = Attachment.where("attachable_id = ?", the_job)
-  end
-
-
-  def show
-    @attachment = Attachment.find(params[:id])
-  end
-
-
-  def new
-    @attachment = Attachment.new
-  end
-
 
   def create
-    @attachment = @job.attachments.create(params[:attachment])
+    @attachment = Attachment.create(attachment_params)
   end
-
+    
+  def update
+    @attachment = Attachment.find(params[:id])
+    @attachment.update_attributes(attachment_params)
+    respond_with @attachment
+  end
 
   def destroy
-    Attachment.find(params[:id]).destroy
+    @attachment = Attachment.find(params[:id])
+    @attachment.destroy
+    respond_with(@attachment)
   end
 
-  private 
-
-  def the_job
-    @job = Job.find(params["job_id"])
-  end
+  private
 
   def attachment_params
-    params.require(:attachment).permit(:description, :image)
+    params.require(:attachment).permit(:image, :attachable_type)
   end
 end

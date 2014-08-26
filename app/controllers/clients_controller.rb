@@ -1,17 +1,18 @@
 class ClientsController < ApplicationController
-  
+  respond_to :html, :json
+
   before_filter :authenticate, except: [:index, :show]
   
   def index
     if params[:type].present?
-      @clients = Client.filter(params).order('clients.created_at DESC')
+      @clients = Client.filter(params).order(created_at: :desc)
     elsif params[:query].present?
       @clients = Client.text_search(params[:query])
       if @clients.empty?
         redirect_to :back, notice: "who? we haven't seen <strong>#{params[:query]}</strong> around here...".html_safe
       end  
     else
-      @clients = Client.scoped.order('clients.created_at DESC')
+      @clients = Client.order(created_at: :desc)
     end
   end
 
@@ -25,7 +26,7 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @client = Client.create(params[:client])
+    @client = Client.create(client_params)
     if @client.save
       redirect_to :back
     else
@@ -39,16 +40,20 @@ class ClientsController < ApplicationController
 
   def update
     @client = Client.find(params[:id])
-    @client.update_attributes!(params[:client])
-    respond_to do |format|
-      format.html { redirect_to edit_client_path(@client) }
-      format.js 
-    end
+    @client.update_attributes(client_params)
+    respond_with @client
   end
 
   def destroy
     Client.find(params[:id]).destroy
     redirect_to :back
+  end
+
+  def autocomplete
+    @clients = Client.order(:name)
+    respond_with(@client) do |format|
+      format.json { render json: @clients.tokens(params[:term]) }
+    end
   end
 
   private

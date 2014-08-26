@@ -1,2 +1,14 @@
-$(".attachments-thumbs").append("<%= j render @attachment, a: @attachment %>");
-$('.attachments-list').hide().fadeToggle(1500).html("<%= j render 'show' %>"); 
+<% if @attachment.new_record? %>
+  alert("pera que deu pêra! <%= j @attachment.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  $(".attachments-list").children(".row").append("<%= j render @attachment %>");
+  var form  = $('*[data-attachable="<%= @attachment.attachable_type %>"]'),
+      field = form.find('.attachable_attachment_ids');
+
+  var array = field.val().split(',').filter(function (v) {
+    return !isNaN(parseInt(v));
+  });
+  array.push('<%= @attachment.id %>');
+
+  field.val(array.join(','));
+<% end %>

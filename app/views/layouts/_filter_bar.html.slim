@@ -15,10 +15,6 @@ nav.navbar.navbar-default.navbar-fixed-top#filter-bar role='navigation'
           - Job.graphicbar.each do |b|
             = active_link_to b.downcase, jobs_path(type: b), type: b
           li = link_to 'all', graphic_path
-        - elsif controller.action_name == 'admin'
-          - Job.types.each do |types|
-            = active_link_to types.downcase, jobs_path(type: types), type: types
-          li = link_to 'all', admin_path
         - elsif params[:controller] == 'clients'
           - Client.clientes.each do |c|
             = active_link_to c.downcase, clients_path(type: c), type: c
@@ -27,6 +23,10 @@ nav.navbar.navbar-default.navbar-fixed-top#filter-bar role='navigation'
           li = link_to "society 6", products_path(type: 'Society'), type: 'Society', remote: true
           li = link_to "urban arts", products_path(type: 'Urban'), type: 'Urban', remote: true
           li = link_to 'all', products_path, remote: true
+        - elsif controller_name == 'clippings'
+          - Clipping.source.each do |source|
+            = active_link_to source.downcase, clippings_path(type: source), type: source
+          li = link_to 'all', clippings_path
         - else
           ' &nbsp;
       form.navbar-form.navbar-right role='search'

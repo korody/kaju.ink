@@ -1,0 +1,6 @@
+= link_to clipping, class: 'thumbnail', remote: true do
+  - clipping.thumbnails.shuffle.first(1).each do |t|
+    = image_tag(t.thumb_url, class: 'img-responsive').to_s
+  .caption
+    p.pull-right = icon_tag 'video-camera' if clipping.video?
+    p = clipping.title

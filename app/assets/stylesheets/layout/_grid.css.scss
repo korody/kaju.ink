@@ -24,9 +24,9 @@
   @include make-lg-column(5);
 }
 
-// .lc6 {
-//   @include make-lg-column(6);
-// }
+.lc6 {
+  @include make-lg-column(6);
+}
 
 // .lc7 {
 //   @include make-lg-column(7);
@@ -52,13 +52,15 @@
   @include make-lg-column(12);
 }
 
+
+
 .lco1 {
   @include make-lg-column-offset(1);
 }
-
-// .lco2 {
-//   @include make-lg-column-offset(2);
-// }
+  
+.lco2 {
+  @include make-lg-column-offset(2);
+}
 
 // .lco3 {
 //   @include make-lg-column-offset(3);
@@ -76,9 +78,9 @@
 //   @include make-lg-column-offset(6);
 // }
 
-// .lco7 {
-//   @include make-lg-column-offset(7);
-// }
+.lco7 {
+  @include make-lg-column-offset(7);
+}
 
 // .lco8 {
 //   @include make-lg-column-offset(8);
@@ -103,103 +105,200 @@
 // -- MEDIUM COLUMN -- //
 
 // .mc1 {
-//   @include make-sm-column(1);
+//   @include make-md-column(1);
 // }
 
 .mc2 {
-  @include make-sm-column(2);
+  @include make-md-column(2);
 }
 
 .mc3 {
-  @include make-sm-column(3);
+  @include make-md-column(3);
 }
 
 // .mc4 {
-//   @include make-sm-column(4);
+//   @include make-md-column(4);
 // }
 
-// .mc5 {
-//   @include make-sm-column(5);
-// }
+.mc5 {
+  @include make-md-column(5);
+}
 
-// .mc6 {
-//   @include make-sm-column(6);
-// }
+.mc6 {
+  @include make-md-column(6);
+}
 
 // .mc7 {
-//   @include make-sm-column(7);
+//   @include make-md-column(7);
 // }
 
 // .mc8 {
-//   @include make-sm-column(8);
+//   @include make-md-column(8);
 // }
 
 // .mc9 {
-//   @include make-sm-column(9);
+//   @include make-md-column(9);
 // }
 
 // .mc10 {
-//   @include make-sm-column(10);
+//   @include make-md-column(10);
 // }
 
 // .mc11 {
-//   @include make-sm-column(11);
+//   @include make-md-column(11);
 // }
 
-// .mc12 {
-//   @include make-sm-column(12);
+.mc12 {
+  @include make-md-column(12);
+}
+
+
+.mco1 {
+  @include make-md-column-offset(1);
+}
+  
+.mco2 {
+  @include make-md-column-offset(2);
+}
+
+// .mco3 {
+//   @include make-md-column-offset(3);
 // }
 
-// .mco1 {
-//   @include make-sm-column-offset(1);
+.mco4 {
+  @include make-md-column-offset(4);
+}
+
+// .mco5 {
+//   @include make-md-column-offset(5);
 // }
+
+// .mco6 {
+//   @include make-md-column-offset(6);
+// }
+
+.mco7 {
+  @include make-md-column-offset(7);
+}
+
+// .mco8 {
+//   @include make-md-column-offset(8);
+// }
+
+// .mco9 {
+//   @include make-md-column-offset(9);
+// }
+
+// .mco10 {
+//   @include make-md-column-offset(10);
+// }
+
+// .mco11 {
+//   @include make-md-column-offset(11);
+// }
+
+// .mco12 {
+//   @include make-md-column-offset(12);
+// }
+
 
 // -- SMALL COLUMN -- //
 
 // .sc1 {
-//   @include make-xs-column(1);
+//   @include make-sm-column(1);
 // }
 
 // .sc2 {
-//   @include make-xs-column(2);
+//   @include make-sm-column(2);
 // }
 
 // .sc3 {
-//   @include make-xs-column(3);
+//   @include make-sm-column(3);
 // }
 
 // .sc4 {
-//   @include make-xs-column(4);
+//   @include make-sm-column(4);
 // }
 
 // .sc5 {
-//   @include make-xs-column(5);
+//   @include make-sm-column(5);
 // }
 
 // .sc6 {
-//   @include make-xs-column(6);
+//   @include make-sm-column(6);
 // }
 
 // .sc7 {
-//   @include make-xs-column(7);
+//   @include make-sm-column(7);
 // }
 
 // .sc8 {
-//   @include make-xs-column(8);
+//   @include make-sm-column(8);
 // }
 
 // .sc9 {
-//   @include make-xs-column(9);
+//   @include make-sm-column(9);
 // }
 
 // .sc10 {
-//   @include make-xs-column(10);
+//   @include make-sm-column(10);
 // }
 
 // .sc11 {
-//   @include make-xs-column(11);
+//   @include make-sm-column(11);
 // }
 
 // .sc12 {
+//   @include make-sm-column(12);
+// }
+
+
+// -- EXTRA SMALL COLUMN -- //
+
+// .xsc1 {
+//   @include make-xs-column(1);
+// }
+
+// .xsc2 {
+//   @include make-xs-column(2);
+// }
+
+// .xsc3 {
+//   @include make-xs-column(3);
+// }
+
+// .xsc4 {
+//   @include make-xs-column(4);
+// }
+
+// .xsc5 {
+//   @include make-xs-column(5);
+// }
+
+// .xsc6 {
+//   @include make-xs-column(6);
+// }
+
+// .xsc7 {
+//   @include make-xs-column(7);
+// }
+
+// .xsc8 {
+//   @include make-xs-column(8);
+// }
+
+// .xsc9 {
+//   @include make-xs-column(9);
+// }
+
+// .xsc10 {
+//   @include make-xs-column(10);
+// }
+
+// .xsc11 {
+//   @include make-xs-column(11);
+// }
+
+// .xsc12 {
 //   @include make-xs-column(12);
 // }

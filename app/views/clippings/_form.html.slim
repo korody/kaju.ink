@@ -1,0 +1,17 @@
+= link_to "<-- back to admin", admin_path
+h2 = "#{@clipping.title} clipping info".html_safe
+= render 'error_messages', object: @clipping
+.progress-container
+= render 'layouts/template' 
+= render 'thumbnails/form', thumbable: @clipping
+.thumbnails-list
+  = render 'thumbnails/thumbnails', object: @clipping
+= render 'attachments/form', attachable: @clipping
+.attachments-list
+  = render 'attachments/attachments', object: @clipping
+= form_for @clipping, as: :clipping, data: { thumbable: 'Clipping', attachable: 'Clipping' } do |clipping|
+  = clipping.hidden_field :thumbnails_ids, class: 'thumbable_thumbnail_ids'
+  = clipping.hidden_field :attachments_ids, class: 'attachable_attachment_ids'
+  = render 'fields', clipping: clipping
+  .form-group
+    = clipping.submit 'update clipping', class: 'btn btn-large btn-block btn-success'

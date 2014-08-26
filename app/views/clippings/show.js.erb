@@ -1,0 +1,31 @@
+ $('#view-job').hide().fadeToggle(800).html("<%= j render 'show', clipping: @clipping %>");
+
+var container = $("#view-job"),
+    page = $("html,body"),
+    up = $("img#up");
+
+$(page).animate({
+  scrollTop: container.offset().top - 108 }, 1200);
+
+$(function() {
+  $(up).click(function() {
+    $(page).animate({
+      scrollTop: page.offset().top - 0 },
+    800);
+  });
+});
+
+$(window).scroll(function () {
+  if($(window).scrollTop() >= (container.offset().top - 110)) {
+    up.css({
+      position: 'fixed',
+      top: '110px'      
+    });
+  } else {
+    up.css({
+      position: 'static'
+    })
+  }
+});
+
+FB.XFBML.parse(document.getElementById('fb').setAttribute('href', 'https://www.facebook.com/kaju.ink'));

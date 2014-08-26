@@ -1,0 +1,8 @@
+= form_for Attachment.new do |attachment|
+  = attachment.hidden_field :attachable_type, value: attachable.class.name
+  .form-group
+    = attachment.label :attachments, class: 'sr-only'
+    .file-input-wrapper
+      .custom-file-field
+        span #{content_tag :span, "select attachments", class: 'file-input-link'} or drag them here
+      = attachment.file_field :image, multiple: true, name: "attachment[image]", class: 'browser-file-field'

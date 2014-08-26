@@ -1,0 +1,19 @@
+.container
+  .center-block
+    #job-form
+      = render 'form'
+    = link_to 'upload product', new_job_product_path(@job), class: 'btn btn-default btn-block', remote: true
+    #new-product
+    h2 = "polaroid preview"
+    #job-gallery.polaroid-preview
+      = render 'jobs/job', job: @job
+    - if @job.video?      
+      h2 = "video preview"
+      iframe width="1170" height="658" src="#{@job.video}".html_safe frameborder="0" allowfullscreen
+    = link_to "delete job", job_path(@job.id), method: "delete", class: 'btn btn-large btn-danger btn-block', data: { confirm: "sure?" }
+    - if @client
+      h2 = "client preview" 
+      = render 'clients/client_edit', c: @client
+    - if @job.products.any?
+      h2 = "products preview"
+      = render 'jobs/products_edit'

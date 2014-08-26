@@ -31,6 +31,12 @@ module ApplicationHelper
     end
   end
 
+  def link_to_back(title, path)
+    content_tag :div, class: 'back-link' do
+      link_to "<-- #{title}", path, class: 'back-link'
+    end
+  end
+
   private
 
   def controller?(*controller)

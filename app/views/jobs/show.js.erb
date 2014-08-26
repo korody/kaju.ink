@@ -8,7 +8,7 @@ var container = $("#view-job"),
     random = $("a#random");
 
 $(page).animate({
-  scrollTop: container.offset().top - 110 }, 1200);
+  scrollTop: container.offset().top - 108 }, 1200);
 
 
 $(function() {
@@ -21,10 +21,10 @@ $(function() {
 
 
 $(window).scroll(function () {
-  if($(window).scrollTop() >= (container.offset().top - 110)) {
+  if($(window).scrollTop() >= (container.offset().top - 108)) {
     up.css({
       position: 'fixed',
-      top: '110px'      
+      top: '112px'      
     });
   } else {
     up.css({

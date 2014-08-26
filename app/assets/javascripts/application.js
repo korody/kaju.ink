@@ -11,9 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery.ui.effect-highlight
 //= require jquery_ujs
+//= require jquery.ui.effect-highlight
+//= require jquery.ui.autocomplete
 //= require bootstrap
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
+//= require best_in_place
 //= require_tree .
