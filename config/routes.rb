@@ -19,7 +19,7 @@ KajuInk::Application.routes.draw do
   resources :humans, path: 'humans', controller: :jobs
   resources :animals, path: 'animals', controller: :jobs
   resources :abstracts, path: 'abstracts', controller: :jobs
-  resources :series, path: 'series', controller: :jobs
+  resources :serial, path: 'serial', controller: :jobs
   resources :characters, path: 'characters', controller: :jobs
   resources :walls, path: 'walls', controller: :jobs
   resources :canvas, path: 'canvas', controller: :jobs
