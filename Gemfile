@@ -38,7 +38,7 @@ gem 'jbuilder'
 gem 'rinku', '~> 1.5.0', require: 'rails_rinku'
 
 
-group :development do
+group :production do
   gem 'rails_12factor'
   gem 'unicorn'
 end
