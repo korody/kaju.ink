@@ -37,4 +37,8 @@ gem 'nested_form'
 gem 'jbuilder'
 gem 'rinku', '~> 1.5.0', require: 'rails_rinku'
 
-gem 'rails_12factor', group: :production
+
+group :development do
+  gem 'rails_12factor'
+  gem 'unicorn'
+end
