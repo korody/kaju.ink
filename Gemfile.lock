@@ -193,3 +193,4 @@ DEPENDENCIES
   simple_form
   slim
   uglifier (>= 1.0.3)
+  unicorn

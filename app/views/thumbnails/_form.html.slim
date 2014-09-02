@@ -1,5 +1,5 @@
 = form_for Thumbnail.new do |thumbnail|
-  = thumbnail.hidden_field :thumbable_type, value: thumbable.class.name
+  = thumbnail.hidden_field :thumbable_type, value: thumbable_class
   .form-group
     = thumbnail.label :thumbnails, class: 'sr-only'
     .file-input-wrapper

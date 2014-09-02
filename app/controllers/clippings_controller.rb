@@ -44,9 +44,15 @@ class ClippingsController < ApplicationController
 
   def update
     @clipping = Clipping.find(params[:id])
-    @clipping.update_attributes(clipping_params)
-    respond_with(@clipping) do |format|
-      format.html { redirect_to edit_clipping_path(@clipping) }
+    @clipping.attributes = clipping_params
+    thumbnails = Thumbnail.all
+    clipping_thumbnails = thumbnails.where(id: @clipping.thumbnails_ids.split(','))
+    @clipping.thumbnails << clipping_thumbnails
+    attachments = Attachment.all
+    clipping_attachments = attachments.where(id: @clipping.attachments_ids.split(','))
+    @clipping.attachments << clipping_attachments
+    if @clipping.update(clipping_params)
+      redirect_to edit_clipping_path(@clipping), success: "Clipping atualizado com sucesso."
     end
   end
 

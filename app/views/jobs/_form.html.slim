@@ -3,10 +3,10 @@ h2 = "#{@job.title} job info".html_safe
 = render 'error_messages', object: @job
 .progress-container
 = render 'layouts/template' 
-= render 'thumbnails/form', thumbable: @job
+= render 'thumbnails/form', thumbable: @job, thumbable_class: 'Job'
 .thumbnails-list
   = render 'thumbnails/thumbnails', object: @job
-= render 'attachments/form', attachable: @job
+= render 'attachments/form', attachable: @job, attachable_class: 'Job'
 .attachments-list
   = render 'attachments/attachments', object: @job
 = form_for @job, as: :job, data: { thumbable: 'Job', attachable: 'Job' } do |job|

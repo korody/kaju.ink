@@ -30,8 +30,8 @@ class JobsController < ApplicationController
     job_attachments = attachments.where(id: @job.attachments_ids.split(','))
     @job.attachments << job_attachments
     @client = @job.client
-    respond_with(@job) do |format|
-      format.html { redirect_to edit_job_path(@job) }
+    if @job.save(job_params)
+      redirect_to edit_job_path(@job), success: "nice Job schatzi! : )"
     end
   end
 
@@ -42,9 +42,15 @@ class JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-    @job.update_attributes(job_params)
-    respond_with(@job) do |format|
-      format.html { redirect_to edit_job_path(@job) }
+    @job.attributes = job_params
+    thumbnails = Thumbnail.all
+    job_thumbnails = thumbnails.where(id: @job.thumbnails_ids.split(','))
+    @job.thumbnails << job_thumbnails
+    attachments = Attachment.all
+    job_attachments = attachments.where(id: @job.attachments_ids.split(','))
+    @job.attachments << job_attachments
+    if @job.update(job_params)
+      redirect_to edit_job_path(@job), success: "your Job is looking good."
     end
   end
 

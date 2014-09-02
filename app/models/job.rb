@@ -11,7 +11,7 @@ class Job < ActiveRecord::Base
   
   has_many :products, as: :marketable
 
-  accepts_nested_attributes_for :attachments, :thumbnails, :products, :client
+  accepts_nested_attributes_for :products, :client
 
   TYPES = %w[Human Abstract Series Character Wall Expo Canvas Animal Pattern Collage Branding Institutional Event Cocreation]
   validates :type, presence: true, inclusion: { in: TYPES }
