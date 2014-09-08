@@ -5,7 +5,7 @@ class CreateClippings < ActiveRecord::Migration
       t.string :link
       t.string :type
       t.string :video
-      t.text :description
+      t.string :description
       t.string :website
       t.string :date
       t.string :country
