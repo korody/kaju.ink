@@ -22,9 +22,9 @@ KajuInk::Application.routes.draw do
   resources :series, path: 'series', controller: :jobs
   resources :characters, path: 'characters', controller: :jobs
   resources :walls, path: 'walls', controller: :jobs
-  resources :canvas, path: 'canvas', controller: :jobs
+  resources :canvases, path: 'canvases', controller: :jobs
   resources :expos, path: 'expos', controller: :jobs
-  resources :collage, path: 'collage', controller: :jobs
+  resources :collages, path: 'collages', controller: :jobs
   resources :patterns, path: 'patterns', controller: :jobs
   resources :brandings, path: 'brandings', controller: :jobs
   resources :institutionals, path: 'institutionals', controller: :jobs
