@@ -1,5 +1,5 @@
 #job-gallery.products-list
   .row
     - @job.products.each do |p|
-      .mc3
+      .col-md-3.col-sm-6
         = render 'products/product', p: p

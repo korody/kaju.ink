@@ -112,9 +112,9 @@
   @include make-md-column(2);
 }
 
-.mc3 {
-  @include make-md-column(3);
-}
+// .mc3 {
+//   @include make-md-column(3);
+// }
 
 // .mc4 {
 //   @include make-md-column(4);
@@ -275,9 +275,9 @@
 //   @include make-xs-column(5);
 // }
 
-// .xsc6 {
-//   @include make-xs-column(6);
-// }
+.xsc6 {
+  @include make-xs-column(6);
+}
 
 // .xsc7 {
 //   @include make-xs-column(7);
